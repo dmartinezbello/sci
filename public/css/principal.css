@@ -1,0 +1,17 @@
+html, body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+footer {
+	color: white;
+	background: black;
+}
+
+.jumbotron-position {
+	margin-bottom: 0px;
+	padding-bottom: 30px;
+}
+
+.webapp {
+	margin: 0px auto;
+}
