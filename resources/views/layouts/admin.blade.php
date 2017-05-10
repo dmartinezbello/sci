@@ -1,0 +1,1 @@
+<!--Aquí se va agregar la plantilla limpia de AdminLTE: https://almsaeedstudio.com-->
