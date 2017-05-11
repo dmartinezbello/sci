@@ -11,10 +11,8 @@
     </head>
     <body>
      @include('layouts.navbar')
-     <div class="container titulo">
-            <h2><b>Contacto</b></h2><br>
-        </div>
-        <section class="container">
+        <section class="container contacto">
+         <h2><b>Contacto</b></h2><br>
             <form form="formContacto" method="POST" action="{{url('/enviarMensaje')}}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"></input> <!--Es usado para proteger a los formularios de la aplicación de ataques de tipo CSRF-->
                 <div class="form-group">
@@ -32,6 +30,7 @@
                 <button class="btn btn-lg btn-success" type="submit">Enviar</button>
             </form>
         </section>
+        <br>
         <script src="{{asset("js/jquery-3.2.1.min.js")}}"></script>
         <script src="{{asset("js/bootstrap.min.js")}}"></script>
     <body>
