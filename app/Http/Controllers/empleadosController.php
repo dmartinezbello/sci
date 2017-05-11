@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Empleado;
-use DB; //Query Builder. 
+use DB;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -14,7 +14,7 @@ class empleadosController extends Controller
     }
 
     public function registrarEmpleado(){
-    	return view('registrar');
+    	return view('registrarse');
     }
 
     //Autenticar empleado en el sistema.
@@ -23,11 +23,16 @@ class empleadosController extends Controller
     	Redirect('/');
     }
 
+    public function logout()
+    {
+        Auth::logout();
+        return Redirect('/');
+    }
 
 	public function guardarEmpleado(Request $datos){
 	    $empleado= new Empleado();
 	    $empleado->usuario=$datos->input('usuario');
-	    $empleado->contrasena=$datos->input('contrasena');
+	    $empleado->password=bcrypt($datos->input('contrasena'));
 	    $empleado->nombre=$datos->input('nombre');
 	    $empleado->apellido=$datos->input('apellido');
 	    $empleado->save();
@@ -80,13 +85,15 @@ class empleadosController extends Controller
         if(Auth::attempt(array('usuario' => $username, 'password' => $password)))
         {
             // De ser datos válidos nos mandara a la bienvenida
-             return Redirect('/login')/*
-                    ->with('mensaje_error', Auth::user()->nombre)
-                    ->withInput()*/;
+             return Redirect('/iniciarSesion');
         }
         // En caso de que la autenticación haya fallado manda un mensaje al formulario de login y también regresamos los valores enviados con withInput().
         return Redirect('/iniciarSesion')
                     ->with('mensaje_error', 'Tus datos son incorrectos')
                     ->withInput();
     }
+
+
+
+
 }

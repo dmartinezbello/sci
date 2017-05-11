@@ -1,5 +1,3 @@
-use Illuminate\Support\Facades\Auth;
-
  <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -16,12 +14,12 @@ use Illuminate\Support\Facades\Auth;
         <li><a href="{{url('/')}}">Inicio</a></li>
         @if (Auth::guest())
          <li><a href="{{url('/iniciarSesion')}}">Iniciar sesion</a></li>
-         <li><a href="{{url('/registrar')}}">Registrar</a></li>
+         <li><a href="{{url('/registrarse')}}">Registrar</a></li>
         @else
         <li>
         <a href="#">{{ Auth::user()->usuario }}</a>
         </li>
-        <li><a href="{{route('auth/logout')}}">Logout</a></li>     
+        <li><a href="{{url('/logout')}}">Logout</a></li>     
          @endif
         <!--<li><a href="{{url('/registrar')}}">Registrar</a></li>
         <li><a href="{{url('/iniciarSesion')}}">Iniciar Sesi&oacute;n</a></li>-->
