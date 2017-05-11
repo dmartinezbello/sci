@@ -6,6 +6,8 @@ Route::get('/', function () {
 
 Route::get('/iniciarSesion', 'empleadosController@iniciarSesion');
 Route::post('/entrarSistema', 'empleadosController@entrarSistema');
+Route::get('/registrar', 'empleadosController@registrarEmpleado');
+Route::post('/guardarEmpleado', 'empleadosController@guardarEmpleado');
 
 Route::get('/contacto', 'contactosController@contacto');
 Route::post('/enviarMensaje', 'contactosController@enviarMensaje');
