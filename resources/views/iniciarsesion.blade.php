@@ -14,17 +14,20 @@
         <div class="container text-center titulo">
             <h2><b>Iniciar Sesi&oacute;n</b></h2><br>
         </div>
+        @if(Session::has('mensaje_error'))
+            {{ Session::get('mensaje_error') }}
+        @endif
         <section class="container form-iniciar-sesion">
             <form name="formIniciarSesion" method="POST" action="{{url('/entrarSistema')}}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"></input> <!--Es usado para proteger a los formularios de la aplicación de ataques de tipo CSRF-->
                 <div class="form-group">
-                    <label for="inputUsuario">Nombre de Usuario</label>
-                    <input type="text" id="usuario" class="form-control" placeholder="Teclea el usuario" required autofocus>
-                </div>
-                <div class="form-group">
-                    <label for="inputContrasena">Contraseña</label>
-                    <input type="password" id="contrasena" class="form-control" placeholder="Teclea la contraseña" required>
-                </div>
+            <label for="usuario">Usuario:</label>
+            <input name="usuario" type="text" placeholder="Teclea Usuario" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="contrasena">Contrasena:</label>
+            <input name="contrasena" type="password" class="form-control" required>
+        </div>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar sesi&oacute;n</button>
             </form>
         </section>
