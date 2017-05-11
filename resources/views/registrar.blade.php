@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
         <link rel="stylesheet" href="{{asset("css/bootstrap.min.css")}}">
-        <link rel="stylesheet" href="{{asset("css/iniciarsesion.css")}}">
         <link rel="icon" type="image/x-icon" href="{{asset("img/itc.ico")}}">
         <title>SCI: Sistema de Control de Inventario</title>
     </head>
