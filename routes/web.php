@@ -12,9 +12,11 @@ Route::post('/entrarSistema', 'empleadosController@entrarSistema');
 Route::get('/contacto', 'contactosController@contacto');
 Route::post('/enviarMensaje', 'contactosController@enviarMensaje');
 
-<<<<<<< HEAD
 /*Recurso Producto*/
 Route::resource('producto', 'productosController');
+
+/*
+<<<<<<< HEAD
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -23,3 +25,4 @@ Route::resource('producto', 'productosController');
 
 
 >>>>>>> d438ac10921eb32fb0b7a401250ac3f5e396bd21
+*/
