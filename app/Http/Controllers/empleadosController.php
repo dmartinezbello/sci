@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Empleado;
-use DB; //Query Builder. 
+use DB;
 use Illuminate\Http\Request;
 
 class empleadosController extends Controller
@@ -13,7 +13,7 @@ class empleadosController extends Controller
     }
 
     public function registrarEmpleado(){
-    	return view('registrar');
+    	return view('registrarse');
     }
 
     //Autenticar empleado en el sistema.
@@ -22,11 +22,10 @@ class empleadosController extends Controller
     	Redirect('/');
     }
 
-
 	public function guardarEmpleado(Request $datos){
 	    $empleado= new Empleado();
 	    $empleado->usuario=$datos->input('usuario');
-	    $empleado->contrasena=$datos->input('contrasena');
+	    $empleado->contrasena=bcrypt($datos->input('contrasena'));
 	    $empleado->nombre=$datos->input('nombre');
 	    $empleado->apellido=$datos->input('apellido');
 	    $empleado->save();

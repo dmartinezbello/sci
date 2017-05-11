@@ -12,9 +12,9 @@
     <body>
      @include('layouts.navbar')
         <section class="container contacto">
-         <h2><b>Contacto</b></h2><br>
+            <h2><b>Contacto</b></h2><br>
             <form form="formContacto" method="POST" action="{{url('/enviarMensaje')}}">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}"></input> <!--Es usado para proteger a los formularios de la aplicación de ataques de tipo CSRF-->
+                <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
                 <div class="form-group">
                     <label for="inputNombre">Nombre</label>
                     <input type="text" id="nombre" class="form-control" placeholder="Teclea el nombre" required autofocus>
@@ -27,7 +27,7 @@
                     <label for="textareaMensaje">Mensaje</label>
                     <textarea name="mensaje" id="mensaje" rows="5" class="form-control" placeholder="Teclea el mensaje" required></textarea>
                 </div>
-                <button class="btn btn-lg btn-success" type="submit">Enviar</button>
+                <button class="btn btn-success" type="submit">Enviar</button>
             </form>
         </section>
         <br>
