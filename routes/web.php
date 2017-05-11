@@ -13,7 +13,6 @@ Route::post('/guardarEmpleado', 'empleadosController@guardarEmpleado');
 /*Rutas de Contactos*/
 Route::get('/contacto', 'contactosController@contacto');
 Route::post('/enviarMensaje', 'contactosController@enviarMensaje');
-<<<<<<< HEAD
 
 /*Recurso Producto*/
 Route::resource('producto', 'productosController');
@@ -28,6 +27,6 @@ Route::resource('producto', 'productosController');
 
 
 >>>>>>> d438ac10921eb32fb0b7a401250ac3f5e396bd21
-*/
 =======
 >>>>>>> 03272ba9662328fc3fd7526a8115d179e0f743c9
+*/
