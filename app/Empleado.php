@@ -1,10 +1,10 @@
 <?php
 
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
-
 class Empleado extends Model
 {
-	protected $tabla = "Empleado";
+    protected $table = "Empleado";
+    public $timestamps = false;
 }
+
