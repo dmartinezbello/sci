@@ -41,10 +41,10 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'sci-ingweb.000webhostapp.com'),
+            'host' => env('DB_HOST', '35.188.125.61'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'id1611695_homestead'),
-            'username' => env('DB_USERNAME', 'id1611695_homestead'),
+            'database' => env('DB_DATABASE', 'homestead'),
+            'username' => env('DB_USERNAME', 'homestead'),
             'password' => env('DB_PASSWORD', 'gerardo123'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',

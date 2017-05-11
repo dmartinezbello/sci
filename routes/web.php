@@ -11,3 +11,5 @@ Route::get('/contacto', 'contactosController@contacto');
 Route::post('/enviarMensaje', 'contactosController@enviarMensaje');
 
 Route::resource('producto', 'productosController');
+
+
