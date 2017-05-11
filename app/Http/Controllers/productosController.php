@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Producto;
+use DB; 
 
 class productosController extends Controller
 {
@@ -13,7 +15,8 @@ class productosController extends Controller
      */
     public function index()
     {
-        //
+        $productos
+        
         return 'Desplegar la lista de productos';
     }
 
