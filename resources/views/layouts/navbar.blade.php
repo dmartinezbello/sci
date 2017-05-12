@@ -12,9 +12,15 @@
     <div id="navbar-options" class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="{{url('/')}}">Inicio</a></li>
-        <li><a href="{{url('/contacto')}}">Contacto</a></li>
-        <li><a href="{{url('/registrarse')}}">Registrarse</a></li>
-        <li><a href="{{url('/iniciarSesion')}}">Iniciar Sesi&oacute;n</a></li>
+        @if (Auth::guest())
+        <li><a href="{{url('/iniciarSesion')}}">Iniciar sesion</a></li>
+        <li><a href="{{url('/registrarse')}}">Registrar</a></li>
+        @else
+        <li>
+          <a href="#">{{ Auth::user()->nombre }}</a>
+        </li>
+        <li><a href="{{url('/logout')}}">Cerrar sesión</a></li>     
+        @endif
       </ul>
     </div>
   </div>
