@@ -4,6 +4,10 @@ Route::get('/', function () {
     return view('layouts.principal');
 });
 
+Route::get('/admin', function () {
+    return view('layouts.admin');
+});
+
 Route::get('/iniciarSesion', 'empleadosController@iniciarSesion');
 Route::post('/entrarSistema', 'empleadosController@entrarSistema');
 Route::get('/registrarse', 'empleadosController@registrarEmpleado');

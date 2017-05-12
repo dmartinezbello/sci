@@ -15,9 +15,8 @@ class productosController extends Controller
      */
     public function index()
     {
-        $productos
-        
-        return 'Desplegar la lista de productos';
+        $productos=Producto::all();
+        return view('admin.consultarProducto', compact('productos'));
     }
 
     /**
