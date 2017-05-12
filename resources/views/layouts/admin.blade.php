@@ -62,7 +62,7 @@
       </div>
       <ul class="sidebar-menu">
         <li class="header">PANEL DE CONTROL</li>
-        <li class="active treeview">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-table"></i> <span>Productos</span>
             <span class="pull-right-container">
@@ -76,7 +76,7 @@
             <li><a href="#eliminarproducto"><i class="fa fa-times"></i>Eliminar Producto</a></li>
           </ul>
         </li>
-        <li class="active treeview">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-share"></i> <span>Entradas</span>
             <span class="pull-right-container">
@@ -87,7 +87,7 @@
             <li class="active"><a href="#registrarentrada"><i class="fa fa-plus"></i>Registrar Entrada</a></li>
           </ul>
         </li>
-        <li class="active treeview">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-reply"></i> <span>Salidas</span>
             <span class="pull-right-container">
@@ -98,7 +98,7 @@
             <li class="active"><a href="#registrarsalida"><i class="fa fa-plus"></i>Registrar Salida</a></li>
           </ul>
         </li>
-        <li class="active treeview">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-archive"></i> <span>Devoluciones</span>
             <span class="pull-right-container">
@@ -109,7 +109,7 @@
             <li class="active"><a href="#registradevolucion"><i class="fa fa-plus"></i>Registrar Devolución</a></li>
           </ul>
         </li>
-        <li class="active treeview">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-folder-open"></i> <span>Reportes</span>
             <span class="pull-right-container">
