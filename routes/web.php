@@ -4,9 +4,12 @@ Route::get('/', function () {
     return view('layouts.principal');
 });
 
+/*
 Route::get('/admin', function () {
     return view('layouts.admin');
 });
+*/
+Route::get('/admin', 'empleadosController@showLogin');
 
 Route::get('/iniciarSesion', 'empleadosController@iniciarSesion');
 Route::post('/entrarSistema', 'empleadosController@postLogin');

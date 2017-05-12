@@ -24,28 +24,37 @@
         <span class="sr-only">Toggle navigation</span>
       </a>
       <div class="navbar-custom-menu">
+        @if (Auth::guest())
+        <ul class="nav navbar-nav">
+          <li><a href="{{url('/iniciarSesion')}}">Iniciar sesion</a></li>
+          <li><a href="{{url('/registrarse')}}">Registrar</a></li>
+        </ul>
+        @else
         <ul class="nav navbar-nav">          
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="img/user.png" class="user-image" alt="Usuario">
-              <span class="hidden-xs">J. Gerardo Moreno N.</span>
+              <span class="hidden-xs">{{ Auth::user()->nombre }}</span>
             </a>
             <ul class="dropdown-menu">
               <li class="user-header">
                 <img src="img/user.png" class="img-circle" alt="Usuario">
                 <p>
-                  J. Gerardo Moreno N.
-                  <small>Fecha: 11/05/2017</small>
+                  {{ Auth::user()->nombre }} {{ Auth::user()->apellido }}
+                  <small>Fecha: 12/05/2017</small>
                 </p>
               </li>
               <li class="user-footer">
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat"><i class="fa fa-sign-out"></i> Cerrar Sesi&oacute;n</a>
+                  <a href="{{url('/logout')}}" class="btn btn-default btn-flat"><i class="fa fa-sign-out"></i> Cerrar Sesi&oacute;n</a>
                 </div>
               </li>
             </ul>
           </li>
         </ul>
+        @endif
+
+        
       </div>
     </nav>
   </header>
@@ -56,8 +65,12 @@
           <img src="img/user.png" class="img-circle" alt="Usuario">
         </div>
         <div class="pull-left info">
-          <p>Gerardo Moreno</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> En L&iacute;nea</a>
+          @if (Auth::guest())
+          <a href="{{url('/iniciarSesion')}}">Iniciar sesion</a>
+          @else
+            <p>{{ Auth::user()->nombre }} {{ Auth::user()->apellido }}</p>
+            <a href="#"><i class="fa fa-circle text-success"></i> En L&iacute;nea</a>
+          @endif 
         </div>
       </div>
       <ul class="sidebar-menu">

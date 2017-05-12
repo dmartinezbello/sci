@@ -17,7 +17,7 @@
         <li><a href="{{url('/registrarse')}}">Registrar</a></li>
         @else
         <li>
-          <a href="#">{{ Auth::user()->nombre }}</a>
+        <a href="{{url('/admin')}}">{{ Auth::user()->nombre }}</a>
         </li>
         <li><a href="{{url('/logout')}}">Cerrar sesión</a></li>     
         @endif

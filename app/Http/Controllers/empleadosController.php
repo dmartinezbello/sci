@@ -39,10 +39,10 @@ class empleadosController extends Controller
     if (Auth::check())
     {
             // Si está autenticado lo mandamos a la raíz donde estara el mensaje de bienvenida.
-        return Redirect::to('/');
+        return View('layouts.admin');
     }
         // Mostramos la vista login.blade.php (Recordemos que .blade.php se omite.)
-    return View('iniciarsesion');
+    return Redirect('/iniciarSesion');
 }
 
     /**
@@ -57,7 +57,7 @@ class empleadosController extends Controller
         if(Auth::attempt(array('usuario' => $username, 'password' => $password)))
         {
             // De ser datos válidos nos mandara a la bienvenida
-           return Redirect('/iniciarSesion');
+           return Redirect('/admin');
        }
         // En caso de que la autenticación haya fallado manda un mensaje al formulario de login y también regresamos los valores enviados con withInput().
        return Redirect('/iniciarSesion')
