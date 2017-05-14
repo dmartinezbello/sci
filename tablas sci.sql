@@ -16,7 +16,7 @@ primary key (id_empleado)
 
 create table Detalle_Salida(
 id_detalle_salida int not null auto_increment,
-id_producto int not null,
+id_producto varchar(10) not null,
 cantidad numeric(12,2) not null,
 id_salida int not null,
 primary key (id_detalle_salida)
@@ -31,7 +31,7 @@ primary key (id_devolucion)
 );
 
 create table Producto(
-id_producto int not null auto_increment,
+id_producto varchar(10) not null,
 nombre varchar(30) not null,
 precio numeric(12,2) not null,
 descripcion varchar(100) not null,
@@ -48,9 +48,11 @@ primary key (id_categoria)
 );
 
 create table Stock(
+id_stock int not null auto_increment,
 id_almacen int not null,
 id_producto int not null,
-cantidad numeric(12,2) not null
+cantidad numeric(12,2) not null,
+primary key (id_stock)
 );
 
 create table Almacen(
@@ -79,7 +81,7 @@ primary key (id_entrada)
 
 create table Detalle_Entrada(
 id_detalle_entrada int not null auto_increment,
-id_producto int not null,
+id_producto varchar(10) not null,
 cantidad numeric(12,2) not null,
 id_entrada int not null,
 primary key (id_detalle_entrada)
