@@ -64,8 +64,4 @@ class empleadosController extends Controller
        ->with('mensaje_error', 'Tus datos son incorrectos')
        ->withInput();
    }
-
-
-
-
 }

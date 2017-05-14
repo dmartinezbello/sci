@@ -12,21 +12,21 @@
 <body>
     @include('layouts.navbar')
     <div class="container text-center titulo">
-        <h2><b>Iniciar Sesi&oacute;n</b></h2><br>
+        <h2><b>Iniciar sesi&oacute;n</b></h2><br>
     </div>
     @if(Session::has('mensaje_error'))
     {{ Session::get('mensaje_error') }}
     @endif
     <section class="container form-iniciar-sesion">
         <form name="formIniciarSesion" method="POST" action="{{url('/entrarSistema')}}">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}"></input> <!--Es usado para proteger a los formularios de la aplicación de ataques de tipo CSRF-->
+            <input type="hidden" name="_token" value="{{ csrf_token() }}"></input> 
             <div class="form-group">
                 <label for="usuario">Usuario:</label>
-                <input name="usuario" type="text" placeholder="Teclea Usuario" class="form-control" required>
+                <input name="usuario" type="text" placeholder="Teclea el usuario" class="form-control" required autofocus>
             </div>
             <div class="form-group">
-                <label for="contrasena">Contrasena:</label>
-                <input name="contrasena" type="password" class="form-control" required>
+                <label for="contrasena">Contraseña:</label>
+                <input name="contrasena" type="password" placeholder="Teclea la contraseña" class="form-control" required>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar sesi&oacute;n</button>
         </form>

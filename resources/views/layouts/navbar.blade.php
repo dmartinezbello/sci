@@ -1,4 +1,4 @@
- <nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-options">
@@ -13,15 +13,13 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="{{url('/')}}">Inicio</a></li>
         @if (Auth::guest())
-        <li><a href="{{url('/iniciarSesion')}}">Iniciar sesion</a></li>
-        <li><a href="{{url('/registrarse')}}">Registrar</a></li>
+          <li><a href="{{url('/iniciarSesion')}}">Iniciar sesión</a></li>
+          <li><a href="{{url('/registrarse')}}">Registrarse</a></li>
         @else
-        <li>
-        <a href="{{url('/admin')}}">{{ Auth::user()->nombre }}</a>
-        </li>
-        <li><a href="{{url('/logout')}}">Cerrar sesión</a></li>     
+          <li><a href="{{url('/admin')}}">{{ Auth::user()->nombre }}</a></li>
+          <li><a href="{{url('/logout')}}">Cerrar sesión</a></li>     
         @endif
       </ul>
     </div>
   </div>
-</nav>
+</nav> 
