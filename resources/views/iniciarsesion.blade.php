@@ -12,7 +12,7 @@
 <body>
     @include('layouts.navbar')
     <div class="container text-center titulo">
-        <h2><b>Iniciar sesi&oacute;n</b></h2><br>
+        <h2><b>Iniciar sesión</b></h2><br>
     </div>
     @if(Session::has('mensaje_error'))
     {{ Session::get('mensaje_error') }}
@@ -28,7 +28,7 @@
                 <label for="contrasena">Contraseña:</label>
                 <input name="contrasena" type="password" placeholder="Teclea la contraseña" class="form-control" required>
             </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar sesi&oacute;n</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar sesión</button>
         </form>
     </section>
     <br>

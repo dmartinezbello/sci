@@ -9,7 +9,7 @@
       			<input type="text" name="codigoProd" id="filter" class="form-control" placeholder="Buscar" autofocus>
     		</div>
 		</div>   
-		<a href="{{url('/producto/create')}}" class="btn btn-primary"><i class="fa fa-plus"></i> Registrar</a>
+		<a href="{{url('/registrarProducto')}}" class="btn btn-primary"><i class="fa fa-plus"></i> Nuevo Producto</a>
 	</div>
 </section>
 @stop
@@ -38,30 +38,20 @@
 					</tr>	
 				</thead>
 				<tbody class="searchable">
+				@foreach($productos as $p)
 					<tr>
-						<td><b>1</b></td>
-						<td>Cuaderno</td>
-						<td>18</td>
-						<td>Doble raya 100 hojas</td>	
-						<td>Rayas</td>	
-						<td>Scribe</td>
+						<td><b>{{$p->id_producto}}</b></td>
+						<td>{{$p->nombre}}</td>
+						<td>{{$p->precio}}</td>
+						<td>{{$p->descripcion}}</td>
+						<td>{{$p->nombre_categoria}}</td>
+						<td>{{$p->nombre_proveedor}}</td>
 						<td>
-                            <a href="#editarproducto" class="btn btn-success"><i class="fa fa-pencil"></i></a>
-                            <a href="eliminarproducto" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                            <a href="{{url('modificarProducto')}}/{{$p->id_producto}}" class="btn btn-success"><i class="fa fa-pencil"></i></a>
+                            <a href="{{url('eliminarProducto')}}/{{$p->id_producto}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                         </td>
 					</tr>
-					<tr>
-						<td><b>2</b></td>
-						<td>Cuaderno</td>
-						<td>20</td>
-						<td>Cuadriculada 100 hojas</td>	
-						<td>Cuadriculada</td>	
-						<td>Scribe</td>
-						<td>
-                            <a href="#editarproducto" class="btn btn-success"><i class="fa fa-pencil"></i></a>
-                            <a href="eliminarproducto" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                        </td>	
-					</tr>
+				@endforeach
 				</tbody>
 			</table>
 		</div>

@@ -25,4 +25,9 @@ Route::get('/login', function () {
 
 Route::get('/logout', 'empleadosController@logout');
 
-Route::resource('producto', 'productosController');
+Route::get('/consultarProducto', 'productosController@consultarProducto');
+Route::get('/registrarProducto', 'productosController@registrarProducto');
+Route::get('/modificarProducto/{id}', 'productosController@modificarProducto');
+Route::get('/eliminarProducto/{id}', 'productosController@eliminarProducto');
+Route::post('/actualizarProducto/{id}', 'productosController@actualizarProducto');
+Route::get('/guardarProducto', 'productosController@guardarProducto');
