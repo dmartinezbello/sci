@@ -31,7 +31,7 @@
                     <label for="contrasena">Contraseña:</label>
                     <input name="contrasena" type="password" placeholder="Tecla la contraseña" class="form-control" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Registrarse</button>
+                <button type="submit" class="btn btn-success">Aceptar</button>
                 <a href="{{url('/')}}" class="btn btn-danger">Cancelar</a>
             </form>
         </section>
