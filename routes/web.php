@@ -30,4 +30,4 @@ Route::get('/registrarProducto', 'productosController@registrarProducto');
 Route::get('/modificarProducto/{id}', 'productosController@modificarProducto');
 Route::get('/eliminarProducto/{id}', 'productosController@eliminarProducto');
 Route::post('/actualizarProducto/{id}', 'productosController@actualizarProducto');
-Route::get('/guardarProducto', 'productosController@guardarProducto');
+Route::post('/guardarProducto', 'productosController@guardarProducto');

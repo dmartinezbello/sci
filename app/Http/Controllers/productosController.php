@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Producto;
+use App\Categoria;
+use App\Proveedor;
 use DB;
 use Illuminate\Http\Request;
 
@@ -20,11 +22,27 @@ class productosController extends Controller
 
     public function registrarProducto()
     {
-    	return view('admin.registrarProducto');
+        $categorias = DB::table('Categoria')
+        ->select('id_categoria', 'nombre')
+        ->get();
+
+        $proveedores = DB::table('Proveedor')
+        ->select('id_proveedor', 'nombre')
+        ->get();
+
+    	return view('admin.registrarProducto', compact('categorias','proveedores'));
     }
 
     public function guardarProducto(Request $datos)
     {
-    	return 'Guardar producto pendiente';
+       $producto= new Producto();
+       $producto->id_producto=$datos->input('id');
+       $producto->nombre=$datos->input('nombre');
+       $producto->precio=$datos->input('precio');
+       $producto->descripcion=$datos->input('descripcion');
+       $producto->id_categoria=$datos->input('categoria');
+       $producto->id_proveedor=$datos->input('proveedor');
+       $producto->save();
+       return Redirect('/registrarProducto');
     }
 }

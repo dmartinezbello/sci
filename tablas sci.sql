@@ -8,9 +8,10 @@ primary key (id_salida)
 create table Empleado(
 id_empleado int not null auto_increment,
 usuario varchar(30) not null unique,
-contrasena varchar(255) not null,
+password varchar(255) not null,
 nombre varchar(30) not null,
 apellido varchar(30) not null,
+remember_token varchar(255) null,
 primary key (id_empleado)
 );
 
