@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+s<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -86,7 +86,6 @@
           <ul class="treeview-menu">
             <li class="active"><a href="{{url('/consultarProducto')}}"><i class="fa fa-search"></i>Consultar producto</a></li>
             <li><a href="{{url('/registrarProducto')}}"><i class="fa fa-plus"></i>Registrar producto</a></li>
-            <!--<li><a href="{{url('/modificarProducto')}}"><i class="fa fa-pencil"></i>Modificar producto</a></li>-->
           </ul>
         </li>
         <li class="treeview">

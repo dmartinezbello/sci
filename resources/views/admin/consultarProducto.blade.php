@@ -34,7 +34,7 @@
 						<th>Descripción</th>	
 						<th>Categoría</th>
 						<th>Proveedor</th>
-						<th><i class="fa fa-cog"></i></th>
+						<th>Acciones</th>
 					</tr>	
 				</thead>
 				<tbody class="searchable">
@@ -48,15 +48,15 @@
 						<td>{{$p->nombre_proveedor}}</td>
 						<td>
                             <a href="{{url('modificarProducto')}}/{{$p->id_producto}}" class="btn btn-success"><i class="fa fa-pencil"></i></a>
-                            <a type="button" href="{{url('eliminarProducto')}}/{{$p->id_producto}}" class="btn btn-danger" data-toggle="modal" data-target="#myModal" aria-label="Left Align"><i class="fa fa-trash-o"></i></a>
+                            <button type="button" data-producto_id="{{$p->id_producto}}" data-producto_nombre="{{$p->nombre}}" class="btn btn-danger" data-toggle="modal" data-target="#confirmDelete" aria-label="Left Align"><i class="fa fa-trash-o"></i></button>
                         </td>
 					</tr>
-					@include('admin.eliminarProducto')
 				@endforeach
 				</tbody>
 			</table>
 		</div>
 	</div>
+	@include('admin.eliminarProducto') <!--Modal para confirmar la eliminación de un registro-->
 </section>
 @stop
 
@@ -64,6 +64,7 @@
 <script>
 $(document).ready(function () 
 {
+	//Filtro de productos.
 	$('#filter').keyup(function () 
 	{
 		var rex = new RegExp($(this).val(), 'i');
@@ -72,6 +73,15 @@ $(document).ready(function ()
 	    {
 	        return rex.test($(this).text());
 	    }).show();
+	});
+
+	//Asignación dinámica de producto a eliminar. 
+	$('#confirmDelete').on('show.bs.modal', function(e)
+	{
+        var productoId = $(e.relatedTarget).data('producto_id');
+        var productoNombre = $(e.relatedTarget).data('producto_nombre');
+	    $("#confirmDelete #producto_nombre > b").text(" " + productoNombre );
+	    $("#delForm").attr('action', 'eliminarProducto/' + productoId); 
 	});
 });
 </script>	

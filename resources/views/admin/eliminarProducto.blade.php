@@ -1,20 +1,21 @@
-<form action="{{url('eliminarProducto')}}/{{$p->id_producto}}" method="POST">
-  <input type="hidden" name="_token" value="{{ csrf_token() }}">
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<!--Modal de confirmar la eliminación de un registro-->
+<div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">¿Deseas eliminar el producto?</h4>
+        <h4 class="modal-title" id="myModalLabel">Confirmación</h4>
       </div>
       <div class="modal-body">
-        ¡No se podrá recuperar el registro!
+          ¿Estás de seguro de eliminar el producto<span id="producto_nombre"><b></b></span>? No se podrá recuperar el registro...
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      <form id="delForm" method="POST">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <button type="submit" class="btn btn-danger">Aceptar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </form>  
       </div>
     </div>
   </div>
 </div>
-</form>

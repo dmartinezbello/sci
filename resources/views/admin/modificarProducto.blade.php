@@ -38,26 +38,24 @@
                     <label for="categoria">Categoría:</label>
                     <select name="categoria" class="form-control" required>
                         @foreach($categorias as $c)
-                        @if($c->id_categoria==$producto->id_categoria)
-                        <option value="{{$c->id_categoria}}" selected>{{$c->nombre}}</option>
-                        @else
-                        <option value="{{$c->id_categoria}}">{{$c->nombre}}</option>
-                        @endif
+                            @if($c->id_categoria==$producto->id_categoria)
+                                <option value="{{$c->id_categoria}}" selected>{{$c->nombre}}</option>
+                            @else
+                                <option value="{{$c->id_categoria}}">{{$c->nombre}}</option>
+                            @endif
                         @endforeach
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="proveedor">Proveedor:</label>
                     <select name="proveedor" class="form-control" required>
-
-
                         <option value="" selected>Selecciona un proveedor</option>
                         @foreach($proveedores as $p)
-                        @if($p->id_proveedor==$producto->id_proveedor)
-                        <option value="{{$p->id_proveedor}}" selected>{{$p->nombre}}</option>
-                        @else
-                        <option value="{{$p->id_proveedor}}">{{$p->nombre}}</option>
-                        @endif
+                            @if($p->id_proveedor==$producto->id_proveedor)
+                                <option value="{{$p->id_proveedor}}" selected>{{$p->nombre}}</option>
+                            @else
+                                <option value="{{$p->id_proveedor}}">{{$p->nombre}}</option>
+                            @endif
                         @endforeach
                     </select>
                 </div>

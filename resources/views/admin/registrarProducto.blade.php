@@ -16,7 +16,6 @@
 <section>
 	<div class="box">
 		<div class="box-body">
-			
             <form action="{{url('/guardarProducto')}}" method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
