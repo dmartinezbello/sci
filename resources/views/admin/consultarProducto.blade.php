@@ -48,9 +48,10 @@
 						<td>{{$p->nombre_proveedor}}</td>
 						<td>
                             <a href="{{url('modificarProducto')}}/{{$p->id_producto}}" class="btn btn-success"><i class="fa fa-pencil"></i></a>
-                            <a href="{{url('eliminarProducto')}}/{{$p->id_producto}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                            <a type="button" href="{{url('eliminarProducto')}}/{{$p->id_producto}}" class="btn btn-danger" data-toggle="modal" data-target="#myModal" aria-label="Left Align"><i class="fa fa-trash-o"></i></a>
                         </td>
 					</tr>
+					@include('admin.eliminarProducto')
 				@endforeach
 				</tbody>
 			</table>
