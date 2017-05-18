@@ -44,9 +44,17 @@ class productosController extends Controller
         ->where('a.id_producto', $id)
         ->get();
 
-      //dd($productos);
+        $producto=$productos->first();
 
-      return view('admin.modificarProducto', compact('productos'));
+        $categorias = DB::table('Categoria')
+          ->select('id_categoria', 'nombre')
+          ->get();
+
+        $proveedores = DB::table('Proveedor')
+          ->select('id_proveedor', 'nombre')
+          ->get();
+
+      return view('admin.modificarProducto', compact('producto','categorias','proveedores'));
     }
 
     public function actualizarProducto(Request $datos, $id)
@@ -54,6 +62,7 @@ class productosController extends Controller
       $productos = DB::table('Producto')
         ->where('id_producto', $id)
         ->get();
+      $producto=Producto::find($id);
 
       $producto->id_producto=$datos->input('id');
       $producto->nombre=$datos->input('nombre');

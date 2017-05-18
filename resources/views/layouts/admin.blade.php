@@ -66,8 +66,11 @@
           @if (Auth::guest())
           <a href="{{url('/iniciarSesion')}}">Iniciar sesión</a>
           @else
-            <p>{{ Auth::user()->nombre }} {{ Auth::user()->apellido }}</p>
+          
+            {{ Auth::user()->nombre }} {{ Auth::user()->apellido }}
+            <br>
             <a href="#"><i class="fa fa-circle text-success"></i> En línea</a>
+          
           @endif 
         </div>
       </div>
