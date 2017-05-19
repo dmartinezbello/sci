@@ -36,7 +36,6 @@ class productosController extends Controller
 
     public function modificarProducto($id)
     {
-      //Error: Property [id_producto] does not exist on this collection instance. 
       $productos = DB::table('Producto AS a')
         ->join('Categoria AS b','b.id_categoria', '=', 'a.id_categoria')
         ->join('Proveedor AS c','c.id_proveedor', '=', 'a.id_proveedor')

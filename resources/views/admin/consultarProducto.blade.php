@@ -75,7 +75,7 @@ $(document).ready(function ()
 	    }).show();
 	});
 
-	//Asignación dinámica de producto a eliminar. 
+	//Asignación dinámica del producto a eliminar en el modal.
 	$('#confirmDelete').on('show.bs.modal', function(e)
 	{
         var productoId = $(e.relatedTarget).data('producto_id');
