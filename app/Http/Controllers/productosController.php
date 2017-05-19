@@ -36,14 +36,12 @@ class productosController extends Controller
 
     public function modificarProducto($id)
     {
-      $productos = DB::table('Producto AS a')
+      $producto = DB::table('Producto AS a')
         ->join('Categoria AS b','b.id_categoria', '=', 'a.id_categoria')
         ->join('Proveedor AS c','c.id_proveedor', '=', 'a.id_proveedor')
         ->select('a.*', 'b.nombre AS nombre_categoria', 'c.nombre AS nombre_proveedor')
         ->where('a.id_producto', $id)
-        ->get();
-
-        $producto=$productos->first();
+        ->first();
 
         $categorias = DB::table('Categoria')
           ->select('id_categoria', 'nombre')
@@ -59,9 +57,9 @@ class productosController extends Controller
     public function actualizarProducto(Request $datos, $id)
     {
       $producto=Producto::find($id);
-      $producto->id_producto=$datos->input('id');
+      $producto->id_producto=$id;
       $producto->nombre=$datos->input('nombre');
-      $producto->precio=$datos->input('precio');
+      $producto->precio=(double)$datos->input('precio');
       $producto->descripcion=$datos->input('descripcion');
       $producto->id_categoria=$datos->input('categoria');
       $producto->id_proveedor=$datos->input('proveedor');
@@ -83,11 +81,12 @@ class productosController extends Controller
        $producto = new Producto();
        $producto->id_producto=$datos->input('id');
        $producto->nombre=$datos->input('nombre');
-       $producto->precio=$datos->input('precio');
+       $producto->precio=(double)$datos->input('precio');
        $producto->descripcion=$datos->input('descripcion');
        $producto->id_categoria=$datos->input('categoria');
        $producto->id_proveedor=$datos->input('proveedor');
        $producto->save();
+       
        return Redirect('/registrarProducto');
     }
 }

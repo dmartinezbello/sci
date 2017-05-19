@@ -30,6 +30,7 @@ class proveedoresController extends Controller
     public function actualizarProveedor(Request $datos, $id)
     {
       $proveedor=Proveedor::find($id);
+      $proveedor->id_proveedor=$id;
       $proveedor->nombre=$datos->input('nombre');
       $proveedor->email=$datos->input('email');
       $proveedor->direccion=$datos->input('direccion');

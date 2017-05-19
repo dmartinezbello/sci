@@ -6,7 +6,7 @@
 		<div class="form-group">
 			<div class="input-group">
       			<div class="input-group-addon"><i class="fa fa-search"></i></div>
-      			<input type="text" name="codigoProd" id="filter" class="form-control" placeholder="Buscar" autofocus>
+      			<input type="text" name="codigoProd" size="50" id="filter" class="form-control" placeholder="Buscar" autofocus>
     		</div>
 		</div>   
 		<a href="{{url('/registrarProducto')}}" class="btn btn-primary"><i class="fa fa-plus"></i> Nuevo Producto</a>

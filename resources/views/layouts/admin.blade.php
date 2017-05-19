@@ -32,7 +32,7 @@
         <ul class="nav navbar-nav">          
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="img/user.png" class="user-image" alt="Usuario">
+              <img src="{{asset("img/user.png")}}" class="user-image" alt="Usuario">
               <span class="hidden-xs">{{ Auth::user()->nombre }}</span>
             </a>
             <ul class="dropdown-menu">
@@ -59,7 +59,7 @@
     <section class="sidebar">
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{{asset("img/user.png")}}" class="img-circle" alt="Usuario">
+          <img src="{{asset('img/user.png')}}" class="img-circle" alt="Usuario">
         </div>
         <div class="pull-left info">
           @if (Auth::guest())
@@ -88,7 +88,7 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="glyphicon glyphicon-inbox"></i> <span>Proveedores</span>
+            <i class="fa fa-bus"></i> <span>Proveedores</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -100,7 +100,7 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="glyphicon glyphicon-list-alt"></i> <span>Categorias</span>
+            <i class="fa fa-list-alt"></i> <span>Categorias</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
