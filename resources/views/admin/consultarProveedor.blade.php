@@ -78,7 +78,7 @@ $(document).ready(function ()
         var proveedorId = $(e.relatedTarget).data('proveedor_id');
         var proveedorNombre = $(e.relatedTarget).data('proveedor_nombre');
 	    $("#confirmDelete #proveedor_nombre > b").text(" " + proveedorNombre );
-	    $("#delForm").attr('action', 'eliminarProducto/' + proveedorId); 
+	    $("#delForm").attr('action', 'eliminarProveedor/' + proveedorId); 
 	});
 });
 </script>	

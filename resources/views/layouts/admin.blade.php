@@ -37,7 +37,7 @@
             </a>
             <ul class="dropdown-menu">
               <li class="user-header">
-                <img src="img/user.png" class="img-circle" alt="Usuario">
+                <img src="{{asset("img/user.png")}}" class="img-circle" alt="Usuario">
                 <p>
                   {{ Auth::user()->nombre }} {{ Auth::user()->apellido }}
                   <!--<small>Acceso: Obtener fecha</small>-->
@@ -59,7 +59,7 @@
     <section class="sidebar">
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="img/user.png" class="img-circle" alt="Usuario">
+          <img src="{{asset("img/user.png")}}" class="img-circle" alt="Usuario">
         </div>
         <div class="pull-left info">
           @if (Auth::guest())
