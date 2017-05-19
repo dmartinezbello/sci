@@ -43,3 +43,15 @@ Route::post('/eliminarProducto/{id}', 'productosController@eliminarProducto');
 Route::post('/actualizarProducto/{id}', 'productosController@actualizarProducto');
 
 Route::post('/guardarProducto', 'productosController@guardarProducto');
+
+/*Rutas de Proveedores*/
+
+Route::get('/registrarProveedor', 'proveedoresController@registrarProveedor');
+
+Route::get('/consultarProveedor', 'proveedoresController@consultarProveedor');
+
+Route::post('/guardarProveedor', 'proveedoresController@guardarProveedor');
+
+
+/*Rutas de Categorias*/
+
