@@ -39,7 +39,8 @@
               <li class="user-header">
                 <img src="img/user.png" class="img-circle" alt="Usuario">
                 <p>
-                  {{ Auth::user()->nombre }} {{ Auth::user()->apellido }}<br>
+                  {{ Auth::user()->nombre }} {{ Auth::user()->apellido }}
+                  <!--<small>Acceso: Obtener fecha</small>-->
                 </p>
               </li>
               <li class="user-footer">
