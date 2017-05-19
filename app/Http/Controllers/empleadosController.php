@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Empleado;
-use DB;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Auth;
+use DB;
 
 class empleadosController extends Controller
 {
@@ -39,12 +40,15 @@ class empleadosController extends Controller
     if (Auth::check())
     {
             // Si está autenticado lo mandamos a la raíz donde estara el mensaje de bienvenida.
-        return View('layouts.admin');
+      return View('layouts.admin');
+        //$fecha = Carbon::now();
+       // $fecha = $fecha->format('d-m-Y');
+        //return View('layouts.admin', compact('fecha'));
     }
-        // Mostramos la vista login.blade.php (Recordemos que .blade.php se omite.)
+    
+    // Mostramos la vista login.blade.php (Recordemos que .blade.php se omite.)
     return Redirect('/iniciarSesion');
 }
-
     /**
      * Valida los datos del usuario.
      */

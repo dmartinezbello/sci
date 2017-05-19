@@ -32,7 +32,7 @@
                 </div>
                 <div class="form-group">
                     <label for="descripcion">Descripción:</label>
-                    <input name="descripcion" type="text" placeholder="Tecla la descripcion del producto" class="form-control" required>
+                    <input name="descripcion" type="text" placeholder="Tecla la descripción del producto" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="categoria">Categoría:</label>

@@ -1,4 +1,4 @@
-s<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -11,7 +11,6 @@ s<!DOCTYPE html>
     <link rel="icon" type="image/x-icon" href="{{asset("img/itc.ico")}}">
     <title>SCI: Sistema de Control de Inventario</title>
   </head>
-  <body>
   <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
   <header class="main-header">
@@ -41,7 +40,7 @@ s<!DOCTYPE html>
                 <img src="img/user.png" class="img-circle" alt="Usuario">
                 <p>
                   {{ Auth::user()->nombre }} {{ Auth::user()->apellido }}
-                  <small>Fecha: 12/05/2017</small>
+                  <!--<small>Acceso: Obtener fecha</small>-->
                 </p>
               </li>
               <li class="user-footer">
@@ -66,11 +65,10 @@ s<!DOCTYPE html>
           @if (Auth::guest())
           <a href="{{url('/iniciarSesion')}}">Iniciar sesión</a>
           @else
-          
-            {{ Auth::user()->nombre }} {{ Auth::user()->apellido }}
+            {{ Auth::user()->nombre }} <br>
+            {{ Auth::user()->apellido }}
             <br>
-            <a href="#"><i class="fa fa-circle text-success"></i> En línea</a>
-          
+            <a href="#"><i class="fa fa-circle text-success"></i> Conectado</a>
           @endif 
         </div>
       </div>

@@ -3,8 +3,8 @@
 @section('title')
 <section>
 	<div class="box-header">
-			<h3 class="box-title"><b>Modificar Producto</b></h3>
-		</div>
+		<h3 class="box-title"><b>Modificar Producto</b></h3>
+	</div>
 </section>
 @stop
 
@@ -32,13 +32,13 @@
                 </div>
                 <div class="form-group">
                     <label for="descripcion">Descripción:</label>
-                    <input name="descripcion" type="text" value="{{$producto->descripcion}}" placeholder="Tecla la descripcion del producto" class="form-control" required>
+                    <input name="descripcion" type="text" value="{{$producto->descripcion}}" placeholder="Tecla la descripción del producto" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="categoria">Categoría:</label>
                     <select name="categoria" class="form-control" required>
                         @foreach($categorias as $c)
-                            @if($c->id_categoria==$producto->id_categoria)
+                            @if($c->id_categoria == $producto->id_categoria)
                                 <option value="{{$c->id_categoria}}" selected>{{$c->nombre}}</option>
                             @else
                                 <option value="{{$c->id_categoria}}">{{$c->nombre}}</option>
@@ -51,7 +51,7 @@
                     <select name="proveedor" class="form-control" required>
                         <option value="" selected>Selecciona un proveedor</option>
                         @foreach($proveedores as $p)
-                            @if($p->id_proveedor==$producto->id_proveedor)
+                            @if($p->id_proveedor == $producto->id_proveedor)
                                 <option value="{{$p->id_proveedor}}" selected>{{$p->nombre}}</option>
                             @else
                                 <option value="{{$p->id_proveedor}}">{{$p->nombre}}</option>
