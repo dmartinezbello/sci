@@ -23,7 +23,7 @@ class proveedoresController extends Controller
 
     public function modificarProveedor($id)
     {
-        $proveedor=Proveedor::find($id);
+      $proveedor=Proveedor::find($id);
       return view('admin.modificarProveedor', compact('proveedor'));
     }
 

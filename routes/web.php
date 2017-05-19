@@ -50,8 +50,13 @@ Route::get('/registrarProveedor', 'proveedoresController@registrarProveedor');
 
 Route::get('/consultarProveedor', 'proveedoresController@consultarProveedor');
 
+Route::get('/modificarProveedor/{id}', 'proveedoresController@modificarProveedor');
+
 Route::post('/guardarProveedor', 'proveedoresController@guardarProveedor');
 
+Route::post('/eliminarProveedor/{id}', 'proveedoresController@eliminarProveedor');
+
+Route::post('/actualizarProveedor/{id}', 'proveedoresController@actualizarProveedor');
 
 /*Rutas de Categorias*/
 
