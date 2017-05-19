@@ -59,11 +59,7 @@ class productosController extends Controller
 
     public function actualizarProducto(Request $datos, $id)
     {
-      $productos = DB::table('Producto')
-        ->where('id_producto', $id)
-        ->get();
       $producto=Producto::find($id);
-
       $producto->id_producto=$datos->input('id');
       $producto->nombre=$datos->input('nombre');
       $producto->precio=$datos->input('precio');
