@@ -33,7 +33,7 @@ class almacenesController extends Controller
       $almacen->id_almacen=$id;
       $almacen->nombre=$datos->input('nombre');
       $almacen->direccion=$datos->input('direccion');
-      $almacen->capacidad=$datos->input('capacidad');
+      $almacen->capacidad=(double)$datos->input('capacidad');
       $almacen->save();
       return Redirect('/consultarAlmacen');
 
@@ -51,7 +51,7 @@ class almacenesController extends Controller
       $almacen= new Almacen();
       $almacen->nombre=$datos->input('nombre');
       $almacen->direccion=$datos->input('direccion');
-      $almacen->capacidad=$datos->input('capacidad');
+      $almacen->capacidad=(double)$datos->input('capacidad');
       $almacen->save();
        return Redirect('/registrarAlmacen');
     }

@@ -6,30 +6,32 @@
 		<div class="form-group">
 			<div class="input-group">
       			<div class="input-group-addon"><i class="fa fa-search"></i></div>
-      			<input type="text" name="codigoProv" size="50" id="filter" class="form-control" placeholder="Buscar" autofocus>
+      			<input type="text" name="codigoCat" size="50" id="filter" class="form-control" placeholder="Buscar" autofocus>
     		</div>
 		</div>   
-		<a href="{{url('/registrarCategoria')}}" class="btn btn-primary"><i class="fa fa-plus"></i> Nuevo Categoria</a>
+		<a href="{{url('/registrarCategoria')}}" class="btn btn-primary"><i class="fa fa-plus"></i> Nueva Categoría</a>
 	</div>
 </section>
 @stop
 
 @section('breadcrumbs')
-<li class="active"><i class="fa fa-search"></i> Consultar categoria</li>
+<li class="active"><i class="fa fa-search"></i> Consultar categoría</li>
 @stop
 
 @section('content')
 <section>
 	<div class="box">
 		<div class="box-header">
-			<h3 class="box-title"><b>Lista de Categorias</b></h3>
+			<h3 class="box-title"><b>Catálogo de Categorías</b></h3>
 		</div>
 		<div class="box-body">
 			<table class="table table-hover">
 				<thead>
 					<tr>
 						<th>ID</th>
+						<th>Nombre</th>
 						<th>Descripción</th>
+						<th>Acciones</th>
 					</tr>	
 				</thead>
 				<tbody class="searchable">
