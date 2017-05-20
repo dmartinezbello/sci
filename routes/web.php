@@ -71,3 +71,17 @@ Route::post('/guardarCategoria', 'categoriasController@guardarCategoria');
 Route::post('/eliminarCategoria/{id}', 'categoriasController@eliminarCategoria');
 
 Route::post('/actualizarCategoria/{id}', 'categoriasController@actualizarCategoria');
+
+/*Rutas de Almacenes*/
+
+Route::get('/registrarAlmacen', 'almacenesController@registrarAlmacen');
+
+Route::get('/consultarAlmacen', 'almacenesController@consultarAlmacen');
+
+Route::get('/modificarAlmacen/{id}', 'almacenesController@modificarAlmacen');
+
+Route::post('/guardarAlmacen', 'almacenesController@guardarAlmacen');
+
+Route::post('/eliminarAlmacen/{id}', 'almacenesController@eliminarAlmacen');
+
+Route::post('/actualizarAlmacen/{id}', 'almacenesController@actualizarAlmacen');
