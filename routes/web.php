@@ -59,6 +59,7 @@ Route::post('/eliminarProveedor/{id}', 'proveedoresController@eliminarProveedor'
 Route::post('/actualizarProveedor/{id}', 'proveedoresController@actualizarProveedor');
 
 /*Rutas de Categorias*/
+
 Route::get('/registrarCategoria', 'categoriasController@registrarCategoria');
 
 Route::get('/consultarCategoria', 'categoriasController@consultarCategoria');
