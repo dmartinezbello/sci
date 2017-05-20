@@ -60,3 +60,8 @@ Route::post('/actualizarProveedor/{id}', 'proveedoresController@actualizarProvee
 
 /*Rutas de Categorias*/
 
+
+
+/*Rutas de Entradas*/
+Route::get('/registrarEntrada', 'entradasController@registrarEntrada');
+

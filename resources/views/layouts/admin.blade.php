@@ -40,7 +40,6 @@
                 <img src="{{asset("img/user.png")}}" class="img-circle" alt="Usuario">
                 <p>
                   {{ Auth::user()->nombre }} {{ Auth::user()->apellido }}
-                  <!--<small>Acceso: Obtener fecha</small>-->
                 </p>
               </li>
               <li class="user-footer">
@@ -94,20 +93,20 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="{{url('/consultarProveedor')}}"><i class="fa fa-search"></i>Consultar proveedores</a></li>
-            <li><a href="{{url('/registrarProveedor')}}"><i class="fa fa-plus"></i>Registrar proveedores</a></li>
+            <li class="active"><a href="{{url('/consultarProveedor')}}"><i class="fa fa-search"></i>Consultar proveedor</a></li>
+            <li><a href="{{url('/registrarProveedor')}}"><i class="fa fa-plus"></i>Registrar proveedor</a></li>
           </ul>
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-list-alt"></i> <span>Categorias</span>
+            <i class="fa fa-list-alt"></i> <span>Categorías</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="{{url('/consultarCategoria')}}"><i class="fa fa-search"></i>Consultar categorias</a></li>
-            <li><a href="{{url('/registrarCategoria')}}"><i class="fa fa-plus"></i>Registrar categorias</a></li>
+            <li class="active"><a href="{{url('/consultarCategoria')}}"><i class="fa fa-search"></i>Consultar categoría</a></li>
+            <li><a href="{{url('/registrarCategoria')}}"><i class="fa fa-plus"></i>Registrar categoría</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -118,7 +117,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="#registrarentrada"><i class="fa fa-plus"></i>Registrar entrada</a></li>
+            <li class="active"><a href="{{url('/registrarEntrada')}}"><i class="fa fa-plus"></i>Registrar entrada</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -129,7 +128,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="#registrarsalida"><i class="fa fa-plus"></i>Registrar salida</a></li>
+            <li class="active"><a href="{{url('/registrarSalida')}}"><i class="fa fa-plus"></i>Registrar salida</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -140,7 +139,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="#registradevolucion"><i class="fa fa-plus"></i>Registrar devolución</a></li>
+            <li class="active"><a href="{{url('/registrarDevolucion')}}"><i class="fa fa-plus"></i>Registrar devolución</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -151,7 +150,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="#reporteinventario"><i class="fa fa-file"></i>Reporte de inventario</a></li>
+            <li class="active"><a href="{{url('/reporteInventario')}}"><i class="fa fa-file"></i>Reporte de inventario</a></li>
           </ul>
         </li>
       </ul>

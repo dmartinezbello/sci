@@ -3,7 +3,7 @@
 @section('title')
 <section>
 	<div class="box-header">
-			<h3 class="box-title"><b>Registrar Producto</b></h3>
+			<h3 class="box-title"><b>Registro de Producto</b></h3>
 		</div>
 </section>
 @stop
@@ -20,7 +20,7 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
                     <label for="id">ID:</label>
-                    <input name="id" type="text" placeholder="Teclea el ID" class="form-control" required>
+                    <input name="id" type="text" placeholder="Teclea el ID del producto" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="nombre">Nombre:</label>
@@ -28,11 +28,11 @@
                 </div>
                 <div class="form-group">
                     <label for="precio">Precio:</label>
-                    <input name="precio" type="text" placeholder="Teclea el precio" class="form-control" required>
+                    <input name="precio" type="text" placeholder="Teclea el precio del producto" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="descripcion">Descripción:</label>
-                    <input name="descripcion" type="text" placeholder="Tecla la descripción del producto" class="form-control" required>
+                    <input name="descripcion" type="text" placeholder="Teclea la descripción del producto" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="categoria">Categoría:</label>

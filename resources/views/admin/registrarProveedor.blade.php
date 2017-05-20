@@ -3,7 +3,7 @@
 @section('title')
 <section>
 	<div class="box-header">
-			<h3 class="box-title"><b>Registrar Proveedor</b></h3>
+			<h3 class="box-title"><b>Registro de Proveedor</b></h3>
 		</div>
 </section>
 @stop
@@ -24,19 +24,19 @@
                 </div>-->
                 <div class="form-group">
                     <label for="nombre">Nombre:</label>
-                    <input name="nombre" type="text" placeholder="Teclea el nombre" class="form-control" required>
+                    <input name="nombre" type="text" placeholder="Teclea el nombre del proveedor" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input name="email" type="email" placeholder="Teclea el email" class="form-control" required>
+                    <input name="email" type="email" placeholder="Teclea el email del proveedor" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="direccion">Dirección:</label>
-                    <input name="direccion" type="text" placeholder="Tecla la dirección" class="form-control" required>
+                    <input name="direccion" type="text" placeholder="Teclea la dirección del proveedor" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label for="telefono">Telefono:</label>
-					<input name="telefono" type="text" placeholder="Tecla el teléfono" class="form-control" required>
+                    <label for="telefono">Teléfono:</label>
+					<input name="telefono" type="text" placeholder="Teclea el teléfono del proveedor" class="form-control" required>
                 </div>
                 <button type="submit" class="btn btn-success">Aceptar</button>
                 <a href="{{url('/admin')}}" class="btn btn-danger">Cancelar</a>

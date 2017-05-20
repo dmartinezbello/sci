@@ -20,19 +20,19 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
                     <label for="id">ID:</label>
-                    <input name="id" type="text" value="{{$producto->id_producto}}" placeholder="Teclea el ID" disabled class="form-control" required>
+                    <input name="id" type="text" value="{{$producto->id_producto}}" placeholder="Teclea el ID del producto" class="form-control" readonly>
                 </div>
                 <div class="form-group">
                     <label for="nombre">Nombre:</label>
-                    <input name="nombre" type="text" value="{{$producto->nombre}}" placeholder="Teclea el nombre" class="form-control" required>
+                    <input name="nombre" type="text" value="{{$producto->nombre}}" placeholder="Teclea el nombre del producto" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="precio">Precio:</label>
-                    <input name="precio" type="text" value="{{$producto->precio}}" placeholder="Teclea el precio" class="form-control" required>
+                    <input name="precio" type="text" value="{{$producto->precio}}" placeholder="Teclea el precio del producto" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="descripcion">Descripción:</label>
-                    <input name="descripcion" type="text" value="{{$producto->descripcion}}" placeholder="Tecla la descripción" class="form-control" required>
+                    <input name="descripcion" type="text" value="{{$producto->descripcion}}" placeholder="Tecla la descripción del producto" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="categoria">Categoría:</label>

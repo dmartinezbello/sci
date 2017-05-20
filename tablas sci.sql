@@ -52,7 +52,7 @@ create table Stock(
 id_stock int not null auto_increment,
 id_almacen int not null,
 id_producto int not null,
-cantidad numeric(12,2) not null,
+cantidad int not null,
 primary key (id_stock)
 );
 
@@ -60,7 +60,7 @@ create table Almacen(
 id_almacen int not null auto_increment,
 nombre varchar(30) not null,
 direccion varchar(100) not null,
-capacidad numeric(12,2) not null,
+capacidad int not null,
 primary key (id_almacen)
 );
 
@@ -69,13 +69,13 @@ id_proveedor int not null auto_increment,
 nombre varchar(30) not null,
 email varchar(30) not null,
 direccion varchar(100) not null,
-telefono int not null,
+telefono varchar (30) not null,
 primary key (id_proveedor)
 );
 
 create table Entrada(
 id_entrada int not null auto_increment,
-tipo varchar(30) not null,
+concepto varchar(255) not null,
 fecha date not null,
 primary key (id_entrada)
 );
@@ -83,7 +83,7 @@ primary key (id_entrada)
 create table Detalle_Entrada(
 id_detalle_entrada int not null auto_increment,
 id_producto varchar(10) not null,
-cantidad numeric(12,2) not null,
+cantidad int not null,
 id_entrada int not null,
 primary key (id_detalle_entrada)
 );
