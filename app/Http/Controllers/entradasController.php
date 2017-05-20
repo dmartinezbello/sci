@@ -35,7 +35,7 @@ class entradasController extends Controller
     public function obtenerEntrada($id)
     {
         //get nombre of Entrada by its id
-        $ent=Entrada::find($id);
+        $ent = Entrada::find($id);
 
         //This works
         return response()->json(['nombre' => 'This is get method']);
