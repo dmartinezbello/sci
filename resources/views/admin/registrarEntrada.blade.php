@@ -39,12 +39,12 @@
                 </div>
                 <div class="row">
                     <div class="col-md-3 form-group">
-                        <label for="">Producto:</label>
-                        <input type="text" name="producto" placeholder="Teclea el ID del producto" class="form-control">
+                        <label for="producto">Producto:</label>
+                        <input id="producto" type="text" name="producto" placeholder="Teclea el ID del producto" class="form-control">
                     </div>
                      <div class="col-md-3 form-group">
-                        <label for="">Cantidad:</label>
-                        <input name="cantidad" placeholder="Teclea la cantidad pedida" class="form-control" required></input> 
+                        <label for="cantidad">Cantidad:</label>
+                        <input id="cantidad" name="cantidad" placeholder="Teclea la cantidad pedida" class="form-control" required></input> 
                     </div>
                      <div class="col-md-2 form-group">
                         <label for="accion">Acción</label><br>
@@ -62,9 +62,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td></td>
-                        </tr>
                     </tbody>
                 </table>
                 <button type="submit" class="btn btn-success">Guardar</button>
@@ -79,9 +76,48 @@
 <script>
 $(document).ready(function () 
 {
+    var productos=[];
+    var cantidades=[];
     $("#agregar").click(function()
     {
-        alert('Agregando producto...')
+        var idprod= $("#producto").val();
+        productos.push(idprod);
+        var cantprod=$("#cantidad").val();
+        cantidades.push(cantprod);
+
+        $.get("obtenerEntrada/"+idprod+"",function(response){ 
+        alert(response.nombre);
+        });
+
+
+        var tableRef = document.getElementById('tabla').getElementsByTagName('tbody')[0];
+
+        // Insert a row in the table at the last row
+        var newRow   = tableRef.insertRow(tableRef.rows.length);
+
+        // Insert a cell in the row at index 0
+        var idCell  = newRow.insertCell(0);
+        var idText  = document.createTextNode(idprod);
+        newCell.appendChild(newText);
+
+        var nombreCell  = newRow.insertCell(1);
+        var nombreText  = document.createTextNode('producto');
+        nombreCell.appendChild(nombreText);
+
+        var cantidadCell  = newRow.insertCell(2);
+        var cantidadText  = document.createTextNode(cantprod);
+        cantidadCell.appendChild(cantidadText);
+
+        var precioCell  = newRow.insertCell(3);
+        var precioText  = document.createTextNode('0');
+        precioCell.appendChild(precioText);
+        
+        var totalCell  = newRow.insertCell(4);
+        var totalText  = document.createTextNode('0');
+        totalCell.appendChild(totalText);
+
+        $("#producto").val('');
+        $("#cantidad").val('');
     });
 
 });
