@@ -60,3 +60,14 @@ Route::post('/actualizarProveedor/{id}', 'proveedoresController@actualizarProvee
 
 /*Rutas de Categorias*/
 
+Route::get('/registrarCategoria', 'categoriasController@registrarCategoria');
+
+Route::get('/consultarCategoria', 'categoriasController@consultarCategoria');
+
+Route::get('/modificarCategoria/{id}', 'categoriasController@modificarCategoria');
+
+Route::post('/guardarCategoria', 'categoriasController@guardarCategoria');
+
+Route::post('/eliminarCategoria/{id}', 'categoriasController@eliminarCategoria');
+
+Route::post('/actualizarCategoria/{id}', 'categoriasController@actualizarCategoria');

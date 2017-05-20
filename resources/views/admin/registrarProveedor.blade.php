@@ -18,10 +18,6 @@
 		<div class="box-body">
             <form action="{{url('/guardarProveedor')}}" method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <!--<div class="form-group">
-                    <label for="id">ID:</label>
-                    <input name="id" type="text" placeholder="Teclea el ID" class="form-control" required>
-                </div>-->
                 <div class="form-group">
                     <label for="nombre">Nombre:</label>
                     <input name="nombre" type="text" placeholder="Teclea el nombre" class="form-control" required>
