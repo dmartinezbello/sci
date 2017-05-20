@@ -32,15 +32,14 @@ class entradasController extends Controller
     	return view('admin.registrarEntrada', compact('fecha', 'noEntrada'));
     }
 
-    public function obtenerEntrada($id)
+    public function obtenerEntrada()
     {
         //get nombre of Entrada by its id
-        $ent=Entrada::find($id);
-
-        //This works
-        return response()->json(['nombre' => 'This is get method']);
+        $id=$_GET['id'];
+        $producto=Producto::find($id);
 
         //This gives me error 500
-        //return response()->json(['nombre' => $ent->nombre]);
+        return response()->json(['nombre' => $producto->nombre,
+                                 'precio' => $producto->precio]);
     }
 }

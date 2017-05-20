@@ -89,4 +89,4 @@ Route::post('/actualizarAlmacen/{id}', 'almacenesController@actualizarAlmacen');
 
 Route::get('/registrarEntrada', 'entradasController@registrarEntrada');
 
-Route::get('/obtenerEntrada/{id}', 'entradasController@obtenerEntrada');
+Route::get('/obtenerEntrada', 'entradasController@obtenerEntrada');

@@ -85,37 +85,47 @@ $(document).ready(function ()
         var cantprod=$("#cantidad").val();
         cantidades.push(cantprod);
 
-        $.get("obtenerEntrada/"+idprod+"",function(response){ 
-        alert(response.nombre);
+        $.ajax({
+        url:'./obtenerEntrada',
+        type: 'GET',
+        data: {
+            id:idprod
+        },
+        success: function( response ){
+            var tableRef = document.getElementById('tabla').getElementsByTagName('tbody')[0];
+
+            // Insert a row in the table at the last row
+            var newRow   = tableRef.insertRow(tableRef.rows.length);
+
+            // Insert a cell in the row at index 0
+            var idCell  = newRow.insertCell(0);
+            var idText  = document.createTextNode(idprod);
+            idCell.appendChild(idText);
+
+            var nombreCell  = newRow.insertCell(1);
+            var nombreText  = document.createTextNode(response.nombre);
+            nombreCell.appendChild(nombreText);
+
+            var cantidadCell  = newRow.insertCell(2);
+            var cantidadText  = document.createTextNode(cantprod);
+            cantidadCell.appendChild(cantidadText);
+
+            var precioCell  = newRow.insertCell(3);
+            var precioText  = document.createTextNode(response.precio);
+            precioCell.appendChild(precioText);
+            
+            var totalCell  = newRow.insertCell(4);
+            var totalText  = document.createTextNode(cantprod*response.precio);
+            totalCell.appendChild(totalText);
+
+        },
+        error: function () {
+            alert('No se encontro el producto');
+        }
         });
 
 
-        var tableRef = document.getElementById('tabla').getElementsByTagName('tbody')[0];
-
-        // Insert a row in the table at the last row
-        var newRow   = tableRef.insertRow(tableRef.rows.length);
-
-        // Insert a cell in the row at index 0
-        var idCell  = newRow.insertCell(0);
-        var idText  = document.createTextNode(idprod);
-        newCell.appendChild(newText);
-
-        var nombreCell  = newRow.insertCell(1);
-        var nombreText  = document.createTextNode('producto');
-        nombreCell.appendChild(nombreText);
-
-        var cantidadCell  = newRow.insertCell(2);
-        var cantidadText  = document.createTextNode(cantprod);
-        cantidadCell.appendChild(cantidadText);
-
-        var precioCell  = newRow.insertCell(3);
-        var precioText  = document.createTextNode('0');
-        precioCell.appendChild(precioText);
         
-        var totalCell  = newRow.insertCell(4);
-        var totalText  = document.createTextNode('0');
-        totalCell.appendChild(totalText);
-
         $("#producto").val('');
         $("#cantidad").val('');
     });
