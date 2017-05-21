@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 use App\Proveedor;
 use App\Producto;
 use App\Entrada;
@@ -61,7 +62,8 @@ class entradasController extends Controller
         //Esto si funciona.
         $productos=$_POST['prod']; //Array
         $observaciones=$_POST['obser']; //Array;
-        $cantidad=$_POST['cant'];
+        $cantidad=$_POST['cant']; 
+        $almacen=$_POST['alm'];
 
         //Fecha de la Entrada...Esto si funciona
         $fecha = Carbon::now();
@@ -69,6 +71,7 @@ class entradasController extends Controller
         //Guardamos la Entrada...Esto si funciona
         $entrada = new Entrada();
         $entrada->observaciones = $observaciones;
+        $entrada->id_empleado = Auth::user()->id_empleado; 
         $entrada->fecha = $fecha;
         $entrada->save();
 
@@ -93,8 +96,14 @@ class entradasController extends Controller
             $detalle_entrada->save();
 
             //Aumentar el stock de productos...
-            //$stock = new Stock();
-
+            $stock = DB::table('Stock')->where([
+                    ['id_producto', '=', $productos[$i]],
+                    ['id_almacen', '=', $almacen],
+                ])->select('cantidad')
+                  ->first();
+            
+            $stock->cantidad=$stock->cantidad+$cantidad[$i];
+            $stock->save();
         }
         
        /* return response()->json([

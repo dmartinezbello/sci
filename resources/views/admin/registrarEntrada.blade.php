@@ -33,7 +33,7 @@
                   
                     <div class="col-md-6 form-group">
                         <label for="observaciones">Observaciones:</label>
-                        <textarea id="observaciones" name="observaciones" placeholder="Teclea las observaciones de la Entrada" class="form-control"></textarea> 
+                        <textarea id="observaciones" name="observaciones" placeholder="Teclea las observaciones de la Entrada (opcional)" class="form-control"></textarea> 
                     </div>
                 </div>
                 <div class="row">
@@ -86,7 +86,7 @@ $(document).ready(function ()
         cantidades.push(cantprod);
         
         if (cantprod=="" || idprod == "") {
-            alert('Completa los datos.');
+            alert('Captura el Producto y la Cantidad.');
         }
         else
         {
@@ -136,24 +136,39 @@ $(document).ready(function ()
     $("#guardar").click(function()
     { 
         var observaciones = $("#observaciones").val();
+        var almacen = $("#almacen" ).val();
 
-        $.ajax({
-            url: '/guardarEntrada',
-            type: 'POST',
-            cache:false,
-            dataType: 'json',
-            data: {
-                "_token":"{{ csrf_token() }}",
-                obser: observaciones,
-                prod: productos,
-                cant: cantidades,
-            }, success: function(response) {
-                alert('Entrada registrada correctamente.');
 
-            }, error: function(xhr, status) {
-                alert('La Entrada no se guardó correctamente.');
-            }
-        });
+        if (almacen == "" || productos.length == 0) 
+        {
+            alert('Captura toda la información de la Entrada.');
+        }
+        else
+        {
+
+            $.ajax({
+                url: '/guardarEntrada',
+                type: 'POST',
+                cache:false,
+                dataType: 'json',
+                data: {
+                    "_token":"{{ csrf_token() }}",
+                    obser: observaciones,
+                    prod: productos,
+                    cant: cantidades,
+                    alm: almacen
+                }, success: function(response) {
+                    alert('Entrada registrada correctamente.');
+                    $('#tabla tbody').remove();
+                    productos.length=0;
+                    cantidades.length=0;
+                    $('#observaciones').val('');
+                    $('#almacen').val('');
+                }, error: function(xhr, status) {
+                    alert('La Entrada no se guardó correctamente.');
+                }
+            });
+        }
     });
 });
 </script>   

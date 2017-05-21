@@ -1,6 +1,6 @@
 create table Salida(
 id_salida int not null auto_increment,
-fecha date not null,
+fecha datetime not null,
 id_empleado int not null,
 primary key (id_salida)
 );
@@ -33,9 +33,10 @@ primary key (id_devolucion)
 
 create table Producto(
 id_producto varchar(10) not null,
-nombre varchar(30) not null,
+nombre varchar(50) not null,
 precio numeric(12,2) not null,
-descripcion varchar(100) not null,
+descripcion varchar(255) not null,
+estado boolean not null,
 id_categoria int not null,
 id_proveedor int not null,
 primary key (id_producto)
@@ -43,40 +44,41 @@ primary key (id_producto)
 
 create table Categoria(
 id_categoria int not null auto_increment,
-nombre varchar(30) not null,
-descripcion varchar(100) not null,
+nombre varchar(50) not null,
+descripcion varchar(255) not null,
 primary key (id_categoria)
 );
 
 create table Stock(
 id_stock int not null auto_increment,
 id_almacen int not null,
-id_producto int not null,
+id_producto varchar(10) not null,
 cantidad int not null,
 primary key (id_stock)
 );
 
 create table Almacen(
 id_almacen int not null auto_increment,
-nombre varchar(30) not null,
-direccion varchar(100) not null,
+nombre varchar(50) not null,
+direccion varchar(255) not null,
 capacidad int not null,
 primary key (id_almacen)
 );
 
 create table Proveedor(
 id_proveedor int not null auto_increment,
-nombre varchar(30) not null,
-email varchar(30) not null,
+nombre varchar(50) not null,
+email varchar(50) not null,
 direccion varchar(100) not null,
-telefono varchar (30) not null,
+telefono varchar (20) not null,
 primary key (id_proveedor)
 );
 
 create table Entrada(
 id_entrada int not null auto_increment,
-concepto varchar(255) not null,
-fecha date not null,
+id_empleado int not null,
+observaciones varchar(255),
+fecha datetime not null,
 primary key (id_entrada)
 );
 
