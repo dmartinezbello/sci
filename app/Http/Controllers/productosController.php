@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Producto;
 use App\Categoria;
 use App\Proveedor;
+use App\Stock;
+use App\Almacen;
 use DB;
 use Illuminate\Http\Request;
 
@@ -78,15 +80,44 @@ class productosController extends Controller
 
     public function guardarProducto(Request $datos)
     {
-       $producto = new Producto();
-       $producto->id_producto=$datos->input('id');
-       $producto->nombre=$datos->input('nombre');
-       $producto->precio=(double)$datos->input('precio');
-       $producto->descripcion=$datos->input('descripcion');
-       $producto->id_categoria=$datos->input('categoria');
-       $producto->id_proveedor=$datos->input('proveedor');
-       $producto->save();
-       
-       return Redirect('/registrarProducto');
+      
+      //Obtenemos todos los almacenes registrados.
+      $almacenes = DB::Table('Almacen')
+      ->select('id_almacen')
+      ->get();
+      //->all(); //El all convierte la coleccion en un array.
+
+      //dd($almacenes);
+
+      //Guardamos el nuevo producto.
+      $producto = new Producto();
+      $producto->id_producto=$datos->input('id');
+      $producto->nombre=$datos->input('nombre');
+      $producto->precio=(double)$datos->input('precio');
+      $producto->descripcion=$datos->input('descripcion');
+      $producto->id_categoria=$datos->input('categoria');
+      $producto->id_proveedor=$datos->input('proveedor');
+      $producto->save();
+
+      //dd($datos->input('id'));
+
+      //Cantidad de almacenes encontrados.
+      //$longitud = count($almacenes);
+      
+      //dd($longitud);
+
+      //Recorremos el arreglo de almacenes.
+      //for ($i=0; $i <$longitud; $i++) 
+      foreach ($almacenes as $a)
+      {
+        //Damos de alta el producto en todos los almacenes con Stock = 0.
+        $stock = new Stock();
+        $stock->id_almacen = $a->id_almacen;
+        $stock->id_producto = $datos->input('id');
+        $stock->cantidad=0;
+        $stock->save();
+      }
+
+      return Redirect('/registrarProducto');
     }
 }

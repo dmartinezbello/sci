@@ -16,20 +16,24 @@
 <section>
 	<div class="box">
 		<div class="box-body">
-            <form action="" method="POST">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="row">
-                    <div class="col-md-3 form-group">
-                        <label for="noEntrada">No. Entrada:</label>
-                        <input name="noEntrada" type="text" value="{{$noEntrada}}" class="form-control" readonly>
-                    </div>
                     <div class="col-md-3 form-group">
                         <label for="fecha">Fecha:</label>
                         <input name="fecha" type="text" value="{{$fecha}}" class="form-control" readonly>
                     </div>
+                      <div class="col-md-3 form-group">
+                        <label for="almacen">Almacén:</label>
+                        <select id="almacen" class="form-control">
+                            <option value="" selected>Selecciona el almacén</option>
+                            @foreach($almacenes as $a)
+                                <option value="{{$a->id_almacen}}">{{$a->nombre}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                  
                     <div class="col-md-6 form-group">
                         <label for="observaciones">Observaciones:</label>
-                        <textarea name="observaciones" placeholder="Teclea las observaciones de la Entrada" class="form-control"></textarea> 
+                        <textarea id="observaciones" name="observaciones" placeholder="Teclea las observaciones de la Entrada" class="form-control"></textarea> 
                     </div>
                 </div>
                 <div class="row">
@@ -37,28 +41,29 @@
                         <label for="producto">Producto:</label>
                         <input id="producto" type="text" name="producto" placeholder="Teclea el ID del producto" class="form-control">
                     </div>
-                     <div class="col-md-3 form-group">
+                    <div class="col-md-3 form-group">
                         <label for="cantidad">Cantidad:</label>
-                        <input id="cantidad" name="cantidad" placeholder="Teclea la cantidad pedida" class="form-control" required></input> 
+                        <input id="cantidad" name="cantidad" placeholder="Teclea la cantidad pedida" class="form-control"></input> 
                     </div>
                      <div class="col-md-2 form-group">
                         <label for="accion">Acción</label><br>
                         <a href="#" class="btn btn-primary" id="agregar">Agregar</a>
                     </div>
-                    <table class="table table-hover" id="tabla">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nombre del Producto</th>
-                                <th>Cantidad Pedida</th>
-                                <th>Precio Unitario</th>
-                                <th>Total</th>
-                            </tr>
-                        </thead>
+                </div>
+                <table class="table table-hover" id="tabla">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre del Producto</th>
+                            <th>Cantidad Pedida</th>
+                            <th>Precio Unitario</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
                     <tbody>
                     </tbody>
                 </table>
-                <button type="submit" class="btn btn-success">Guardar</button>
+                <br><button id="guardar" class="btn btn-success">Guardar</button>
                 <a href="{{url('/admin')}}" class="btn btn-danger">Cancelar</a>
             </form> 
 		</div>
@@ -72,46 +77,83 @@ $(document).ready(function ()
 {
     var productos=[];
     var cantidades=[];
+
     $("#agregar").click(function()
     {
         var idprod= $("#producto").val();
         productos.push(idprod);
         var cantprod=$("#cantidad").val();
         cantidades.push(cantprod);
-
-        $.get("obtenerEntrada/"+idprod+"",function(response){ 
-            alert(response.nombre);
-        });
-
-
-        var tableRef = document.getElementById('tabla').getElementsByTagName('tbody')[0];
-
-        // Insert a row in the table at the last row
-        var newRow   = tableRef.insertRow(tableRef.rows.length);
-
-        // Insert a cell in the row at index 0
-        var idCell  = newRow.insertCell(0);
-        var idText  = document.createTextNode(idprod);
-        newCell.appendChild(newText);
-
-        var nombreCell  = newRow.insertCell(1);
-        var nombreText  = document.createTextNode('producto');
-        nombreCell.appendChild(nombreText);
-
-        var cantidadCell  = newRow.insertCell(2);
-        var cantidadText  = document.createTextNode(cantprod);
-        cantidadCell.appendChild(cantidadText);
-
-        var precioCell  = newRow.insertCell(3);
-        var precioText  = document.createTextNode('0');
-        precioCell.appendChild(precioText);
         
-        var totalCell  = newRow.insertCell(4);s
-        var totalText  = document.createTextNode('0');
-        totalCell.appendChild(totalText);
+        if (cantprod=="" || idprod == "") {
+            alert('Completa los datos.');
+        }
+        else
+        {
+            $.ajax({
+                    url:'./obtenerEntrada',
+                    type: 'GET',
+                    data: {
+                        id:idprod
+                }, success: function( response ) {
+                    var tableRef = document.getElementById('tabla').getElementsByTagName('tbody')[0];
 
-        $("#producto").val('');
-        $("#cantidad").val('');
+                    var newRow   = tableRef.insertRow(tableRef.rows.length);
+
+                    var idCell  = newRow.insertCell(0);
+                    var idText  = document.createTextNode(idprod);
+                    idCell.appendChild(idText);
+
+                    var nombreCell  = newRow.insertCell(1);
+                    var nombreText  = document.createTextNode(response.nombre);
+                    nombreCell.appendChild(nombreText);
+
+                    var cantidadCell  = newRow.insertCell(2);
+                    var cantidadText  = document.createTextNode(cantprod);
+                    cantidadCell.appendChild(cantidadText);
+
+                    var precioCell  = newRow.insertCell(3);
+                    var precioText  = document.createTextNode(response.precio);
+                    precioCell.appendChild(precioText);
+                    
+                    var totalCell  = newRow.insertCell(4);
+                    var totalText  = document.createTextNode(cantprod*response.precio);
+                    totalCell.appendChild(totalText);
+                }, error: function () {
+                alert('No se encontró el producto.');
+                    productos.push();
+                    cantidades.push();
+                }
+            });
+        
+            $("#producto").val('');
+            $("#cantidad").val('');
+        }
+    });
+
+    //Falta enviar el almacen al que se le hace la entrada y aumentar el stock del producto en el controlador.
+    //Checar porque ajax regresa error si los productos se insertan bien en el detalle_entrada.
+    $("#guardar").click(function()
+    { 
+        var observaciones = $("#observaciones").val();
+
+        $.ajax({
+            url: '/guardarEntrada',
+            type: 'POST',
+            cache:false,
+            dataType: 'json',
+            data: {
+                "_token":"{{ csrf_token() }}",
+                obser: observaciones,
+                prod: productos,
+                cant: cantidades,
+            }, success: function(response) {
+                alert('Entrada registrada correctamente.');
+
+            }, error: function(xhr, status) {
+                alert('La Entrada no se guardó correctamente.');
+            }
+        });
     });
 });
 </script>   

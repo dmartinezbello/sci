@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Proveedor;
 use App\Producto;
 use App\Entrada;
+use App\Almacen;
+use App\Stock;
+use App\Detalle_Entrada;
 use Carbon\Carbon;
 use DB;
 
@@ -14,33 +17,88 @@ class entradasController extends Controller
     public function registrarEntrada()
     {
     	//Obtener la última Entrada registrada.
-    	$noEntrada = DB::table('Entrada')
+    	/*$noEntrada = DB::table('Entrada')
     	->orderBy('id_entrada', 'desc')
     	->select('id_entrada')
-    	->first();
+    	->first();*/
+
+        //Obtener todos los almacenes.
+        $almacenes = DB::table('Almacen')
+        ->select('id_almacen', 'nombre')
+        ->get();
 
     	//Cuando no existen Entradas registradas por defecto el noEntrada es 1.
-    	if ($noEntrada == null) 
+    	/*if ($noEntrada == "") 
     	{
     		$noEntrada = 1;
-    	}
+    	}*/
+
+        /*<div class="col-md-3 form-group">
+            <label for="noEntrada">No. Entrada:</label>
+            <input name="noEntrada" type="text" value="{{noEntrada}}" class="form-control" readonly>
+        </div>*/
     	
     	//Obtener la fecha que se realiza la Entrada. 
     	$fecha = Carbon::now();
        	$fecha = $fecha->format('d-m-Y'); 
 
-    	return view('admin.registrarEntrada', compact('fecha', 'noEntrada'));
+    	return view('admin.registrarEntrada', compact('almacenes', 'fecha'));
     }
 
-    public function obtenerEntrada($id)
+    public function obtenerEntrada()
     {
-        //get nombre of Entrada by its id
-        $ent = Entrada::find($id);
+        $id=$_GET['id'];
 
-        //This works
-        return response()->json(['nombre' => 'This is get method']);
+        $producto=Producto::find($id); 
 
-        //This gives me error 500
-        //return response()->json(['nombre' => $ent->nombre]);
+        //Aquí marca error cuando no se encuentra el producto. Intenta enviar el nombre y precio de un producto que no existe. Validar si la consulta fue exitosa.
+        return response()->json(['nombre' => $producto->nombre,
+                                 'precio' => $producto->precio]);
+    }
+
+    public function guardarEntrada()
+    {
+        //Esto si funciona.
+        $productos=$_POST['prod']; //Array
+        $observaciones=$_POST['obser']; //Array;
+        $cantidad=$_POST['cant'];
+
+        //Fecha de la Entrada...Esto si funciona
+        $fecha = Carbon::now();
+
+        //Guardamos la Entrada...Esto si funciona
+        $entrada = new Entrada();
+        $entrada->observaciones = $observaciones;
+        $entrada->fecha = $fecha;
+        $entrada->save();
+
+        //Obtenemos el id de la Entrada creada..Esto si funciona
+        $id_entrada = DB::table('Entrada')
+        ->orderBy('id_entrada', 'desc')
+        ->select('id_entrada')
+        ->first();
+
+        //dd($id_entrada);
+
+        //Número de productos...
+        $longitud = count($productos);
+
+        //Insertamos el detalle de la Entrada...
+        for ($i=0; $i <$longitud; $i++) 
+        { 
+            $detalle_entrada = new Detalle_Entrada();
+            $detalle_entrada->id_producto=$productos[$i];
+            $detalle_entrada->cantidad=$cantidad[$i];
+            $detalle_entrada->id_entrada=$id_entrada->id_entrada;
+            $detalle_entrada->save();
+
+            //Aumentar el stock de productos...
+            //$stock = new Stock();
+
+        }
+        
+       /* return response()->json([
+            'mensaje' => 'Listo'
+        ]);*/
     }
 }
