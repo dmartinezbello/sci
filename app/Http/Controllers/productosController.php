@@ -97,6 +97,7 @@ class productosController extends Controller
       $producto->descripcion=$datos->input('descripcion');
       $producto->id_categoria=$datos->input('categoria');
       $producto->id_proveedor=$datos->input('proveedor');
+      $producto->estado=1;
       $producto->save();
 
       //dd($datos->input('id'));

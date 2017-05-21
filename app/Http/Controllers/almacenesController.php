@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Almacen;
+use App\Producto;
+use App\Stock;
 use DB;
 use Illuminate\Http\Request;
 
@@ -48,11 +50,24 @@ class almacenesController extends Controller
 
     public function guardarAlmacen(Request $datos)
     {
+      $productos = DB::table('Producto')
+      ->orderBy('id_producto')
+      ->get();
+
       $almacen= new Almacen();
       $almacen->nombre=$datos->input('nombre');
       $almacen->direccion=$datos->input('direccion');
       $almacen->capacidad=(double)$datos->input('capacidad');
       $almacen->save();
+
+      foreach ($productos as $p) {
+        $stock= new Stock();
+        $stock->id_almacen=$almacen->id_almacen;
+        $stock->id_producto=$p->id_producto;
+        $stock->cantidad=0;
+        $stock->save();
+      }
        return Redirect('/registrarAlmacen');
+
     }
 }
