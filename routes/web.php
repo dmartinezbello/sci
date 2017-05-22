@@ -95,3 +95,13 @@ Route::get('/obtenerEntrada', 'entradasController@obtenerEntrada');
 Route::get('/detalleEntrada/{id}', 'entradasController@detalleEntrada');
 
 Route::post('/guardarEntrada', 'entradasController@guardarEntrada');
+
+/*Rutas de Salidas*/
+
+Route::get('/registrarSalida', 'salidasController@registrarSalida');
+
+Route::get('/obtenerSalida', 'salidasController@obtenerSalida');
+
+Route::get('/detalleSalida/{id}', 'salidasController@detalleSalida');
+
+Route::post('/guardarSalida', 'salidasController@guardarSalida');

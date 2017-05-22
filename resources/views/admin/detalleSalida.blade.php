@@ -3,13 +3,13 @@
 @section('title')
 <section>
 	<div class="box-header">
-			<h3 class="box-title"><b>Detalle de Entrada</b></h3>
+			<h3 class="box-title"><b>Detalle de Salida</b></h3>
 		</div>
 </section>
 @stop
 
 @section('breadcrumbs')
-<li class="active"><i class="fa fa-list-alt"></i> Detalle de Entrada</li>
+<li class="active"><i class="fa fa-list-alt"></i> Detalle de Salida</li>
 @stop
 
 @section('content')
@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-md-3 form-group">
                     <label for="fecha">Fecha:</label>
-                    <input name="fecha" type="text" value="{{$entrada->fecha}}" class="form-control" readonly>
+                    <input name="fecha" type="text" value="{{$salida->fecha}}" class="form-control" readonly>
                     </div>
                         <div class="col-md-3 form-group">
                             <label for="almacen">Empleado:</label>
@@ -27,7 +27,7 @@
                         </div>
                     <div class="col-md-6 form-group">
                         <label for="observaciones">Observaciones:</label>
-                    <div name="observaciones">{{$entrada->observaciones}}</div>
+                    <div name="observaciones">{{$salida->observaciones}}</div>
                 </div>
             </div>
                 <table class="table table-hover">
@@ -41,7 +41,7 @@
                         </tr>   
                     </thead>
                     <tbody>
-                    @foreach($detalleentrada as $d)
+                    @foreach($detallesalida as $d)
                         <tr>
                             <td><b>{{$d->id_producto}}</b></td>
                             <td>{{$d->nombre}}</td>
