@@ -84,9 +84,10 @@ $(document).ready(function ()
         productos.push(idprod);
         var cantprod=$("#cantidad").val();
         cantidades.push(cantprod);
+        var almacen=$("#almacen").val();
         
-        if (cantprod=="" || idprod == "") {
-            alert('Captura el Producto y la Cantidad.');
+        if (cantprod=="" || idprod == "" || almacen=="") {
+            alert('Captura el Almacen, Producto y la Cantidad');
         }
         else
         {
@@ -95,8 +96,11 @@ $(document).ready(function ()
                     type: 'GET',
                     data: {
                         id:idprod,
-                        cantidad:cantprod
+                        cantidad:cantprod,
+                        alm:almacen
                 }, success: function( response ) {
+                    if(response.mensaje=="aprovado")
+                    {
                     var tableRef = document.getElementById('tabla').getElementsByTagName('tbody')[0];
 
                     var newRow   = tableRef.insertRow(tableRef.rows.length);
@@ -119,7 +123,11 @@ $(document).ready(function ()
                     
                     var totalCell  = newRow.insertCell(4);
                     var totalText  = document.createTextNode(cantprod*response.precio);
-                    totalCell.appendChild(totalText);
+                    totalCell.appendChild(totalText);   
+                    }
+                    else{
+                        alert(response.mensaje);
+                    }
                 }, error: function () {
                 alert('No se encontró el producto.');
                     productos.push();

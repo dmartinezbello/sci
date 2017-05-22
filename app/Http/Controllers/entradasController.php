@@ -66,11 +66,27 @@ class entradasController extends Controller
     {
         $id=$_GET['id'];
         $cantidad=$_GET['cantidad'];
+        $almacen=$_GET['alm'];
         $producto=Producto::find($id); 
+        $almacenseleccionado=Almacen::find($almacen);
+        $ocupado=DB::table('Stock')
+        ->select(DB::raw('sum(cantidad) as actual'))
+        ->where('id_almacen',$almacen)
+        ->groupBy('id_almacen')
+        ->first();
+        $restante=$almacenseleccionado->capacidad-$ocupado->actual;
+        $mensaje="";
+        if($cantidad<$restante) {
+            $mensaje="aprovado";
+        } else
+        {
+            $mensaje="No cuenta con el espacio suficiente en el almacen, Espacio restante: ".$restante;
+        }
 
         //Aquí marca error cuando no se encuentra el producto. Intenta enviar el nombre y precio de un producto que no existe. Validar si la consulta fue exitosa.
         return response()->json(['nombre' => $producto->nombre,
-                                 'precio' => $producto->precio]);
+                                 'precio' => $producto->precio,
+                                 'mensaje' => $mensaje]);
     }
 
     public function guardarEntrada()

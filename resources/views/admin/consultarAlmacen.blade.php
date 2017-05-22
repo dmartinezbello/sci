@@ -42,6 +42,7 @@
 						<td>{{$a->direccion}}</td>
 						<td>{{$a->capacidad}}</td>
 						<td>
+							<a href="{{url('detalleAlmacen')}}/{{$a->id_almacen}}" class="btn btn-info"><i class="fa fa-list-alt"></i></a>
                             <a href="{{url('modificarAlmacen')}}/{{$a->id_almacen}}" class="btn btn-success"><i class="fa fa-pencil"></i></a>
                             <button type="button" data-almacen_id="{{$a->id_almacen}}" data-almacen_nombre="{{$a->nombre}}" class="btn btn-danger" data-toggle="modal" data-target="#confirmDelete" aria-label="Left Align"><i class="fa fa-trash-o"></i></button>
                         </td>
