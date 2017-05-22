@@ -65,12 +65,27 @@ class salidasController extends Controller
     public function obtenerSalida()
     {
         $id=$_GET['id'];
-
+        $cantidad=$_GET['cantidad'];
+        $almacen=$_GET['alm'];
         $producto=Producto::find($id); 
+        $almacenseleccionado=Almacen::find($almacen);
+        $stock=DB::table('Stock')
+        ->select('cantidad')
+        ->where('id_producto',$id)
+        ->where('id_almacen',$almacen)
+        ->first();
+
+        if($cantidad<$stock->cantidad) {
+            $mensaje="aprovado";
+        } else
+        {
+            $mensaje="No cuenta con el Producto suficiente en el almacen, Producto restante: ".$stock->cantidad;
+        }
 
         //Aquí marca error cuando no se encuentra el producto. Intenta enviar el nombre y precio de un producto que no existe. Validar si la consulta fue exitosa.
         return response()->json(['nombre' => $producto->nombre,
-                                 'precio' => $producto->precio]);
+                                 'precio' => $producto->precio,
+                                 'mensaje' => $mensaje]);
     }
 
     public function guardarSalida()
