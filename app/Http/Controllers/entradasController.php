@@ -15,6 +15,16 @@ use DB;
 
 class entradasController extends Controller
 {
+    public function consultarEntrada() 
+    {
+        $entradas = DB::table('Entrada')
+        ->join('Empleado','Empleado.id_empleado','=','Entrada.id_empleado')
+        ->select('Entrada.*','Empleado.nombre AS nombre')
+        ->orderBy('id_entrada')
+        ->get();
+
+      return view('admin.consultarEntrada', compact('entradas'));
+    }
 
     public function detalleEntrada($id)
     {

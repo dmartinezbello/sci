@@ -16,6 +16,16 @@ use DB;
 class salidasController extends Controller
 {
 
+    public function consultarSalida() 
+    {
+        $salidas = DB::table('Salida')
+        ->join('Empleado','Empleado.id_empleado','=','Salida.id_empleado')
+        ->select('Salida.*','Empleado.nombre AS nombre')
+        ->orderBy('id_salida')
+        ->get();
+
+      return view('admin.consultarSalida', compact('salidas'));
+    }
     public function detalleSalida($id)
     {
         $salida=Salida::find($id);

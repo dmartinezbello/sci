@@ -93,6 +93,8 @@ Route::post('/actualizarProveedor/{id}', 'proveedoresController@actualizarProvee
 
 Route::get('/registrarEntrada', 'entradasController@registrarEntrada')->middleware('admin','entradas');
 
+Route::get('/consultarEntrada', 'entradasController@consultarEntrada')->middleware('admin','entradas');
+
 Route::get('/obtenerEntrada', 'entradasController@obtenerEntrada')->middleware('admin','entradas');
 
 Route::get('/detalleEntrada/{id}', 'entradasController@detalleEntrada')->middleware('admin','entradas');
@@ -102,6 +104,8 @@ Route::post('/guardarEntrada', 'entradasController@guardarEntrada')->middleware(
 /*Rutas de Salidas*/
 
 Route::get('/registrarSalida', 'salidasController@registrarSalida')->middleware('admin','salidas');
+
+Route::get('/consultarSalida', 'salidasController@consultarSalida')->middleware('admin','salidas');
 
 Route::get('/obtenerSalida', 'salidasController@obtenerSalida')->middleware('admin','salidas');
 

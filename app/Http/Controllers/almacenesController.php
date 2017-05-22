@@ -15,7 +15,12 @@ class almacenesController extends Controller
       ->orderBy('id_almacen')
       ->get();
 
-      return view('admin.consultarAlmacen', compact('almacenes'));
+      $ocupado=DB::table('Stock')
+        ->select(DB::raw('sum(cantidad) as actual'))
+        ->groupBy('id_almacen')
+        ->first();
+
+      return view('admin.consultarAlmacen', compact('almacenes','ocupado'));
     }
 
     public function registrarAlmacen()

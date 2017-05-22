@@ -35,7 +35,7 @@
 					</tr>	
 				</thead>
 				<tbody class="searchable">
-				@foreach($almacenes as $a)
+				@foreach($almacenes as $index => $a)
 					<tr>
 						<td><b>{{$a->id_almacen}}</b></td>
 						<td>{{$a->nombre}}</td>

@@ -136,6 +136,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
+            <li class="active"><a href="{{url('/consultarEntrada')}}"><i class="fa fa-search"></i>Consultar entrada</a></li>
             <li class="active"><a href="{{url('/registrarEntrada')}}"><i class="fa fa-plus"></i>Registrar entrada</a></li>
           </ul>
         </li>
@@ -150,6 +151,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
+            <li class="active"><a href="{{url('/consultarSalida')}}"><i class="fa fa-search"></i>Consultar salida</a></li>
             <li class="active"><a href="{{url('/registrarSalida')}}"><i class="fa fa-plus"></i>Registrar salida</a></li>
           </ul>
         </li>
