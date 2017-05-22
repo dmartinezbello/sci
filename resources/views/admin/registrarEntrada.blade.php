@@ -158,12 +158,8 @@ $(document).ready(function ()
                     cant: cantidades,
                     alm: almacen
                 }, success: function(response) {
-                    alert('Entrada registrada correctamente.');
-                    $('#tabla tbody').remove();
-                    productos.length=0;
-                    cantidades.length=0;
-                    $('#observaciones').val('');
-                    $('#almacen').val('');
+                    alert('Entrada registrada correctamente. Re direccionado al detalle.');
+                    window.location.replace("./detalleEntrada/"+response.id);
                 }, error: function(xhr, status) {
                     alert('La Entrada no se guardó correctamente.');
                 }

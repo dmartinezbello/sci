@@ -15,6 +15,22 @@ use DB;
 
 class entradasController extends Controller
 {
+
+    public function detalleEntrada($id)
+    {
+        $entrada=Entrada::find($id);
+        $empleado=DB::table('Empleado')
+        ->select('nombre','apellido')
+        ->where('id_empleado',$entrada->id_empleado)
+        ->first();
+        $detalleentrada=DB::table('Detalle_Entrada')
+        ->join('Producto','Detalle_Entrada.id_producto', '=', 'Producto.id_producto')
+        ->select('Detalle_Entrada.id_producto AS id_producto','Producto.nombre AS nombre', 'Detalle_Entrada.cantidad AS cantidad', 'Producto.precio AS precio')
+        ->where('Detalle_Entrada.id_entrada',$id)
+        ->orderBy('Detalle_Entrada.id_producto')
+        ->get();
+        return view('admin.detalleEntrada', compact('entrada','empleado','detalleentrada'));
+    }
     public function registrarEntrada()
     {
     	//Obtener la última Entrada registrada.
@@ -106,7 +122,7 @@ class entradasController extends Controller
         }
         
        return response()->json([
-            'mensaje' => 'Listo'
+            'id' => $id_entrada->id_entrada
         ]);
     }
 }

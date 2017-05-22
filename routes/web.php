@@ -92,4 +92,6 @@ Route::get('/registrarEntrada', 'entradasController@registrarEntrada');
 
 Route::get('/obtenerEntrada', 'entradasController@obtenerEntrada');
 
+Route::get('/detalleEntrada/{id}', 'entradasController@detalleEntrada');
+
 Route::post('/guardarEntrada', 'entradasController@guardarEntrada');
