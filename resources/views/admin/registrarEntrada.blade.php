@@ -94,7 +94,8 @@ $(document).ready(function ()
                     url:'./obtenerEntrada',
                     type: 'GET',
                     data: {
-                        id:idprod
+                        id:idprod,
+                        cantidad:cantprod
                 }, success: function( response ) {
                     var tableRef = document.getElementById('tabla').getElementsByTagName('tbody')[0];
 

@@ -67,6 +67,8 @@ Route::get('/consultarAlmacen', 'almacenesController@consultarAlmacen')->middlew
 
 Route::get('/modificarAlmacen/{id}', 'almacenesController@modificarAlmacen')->middleware('admin','almacenes');
 
+Route::get('/detalleAlmacen/{id}', 'almacenesController@detalleAlmacen')->middleware('admin','almacenes');
+
 Route::post('/guardarAlmacen', 'almacenesController@guardarAlmacen')->middleware('admin','almacenes');
 
 Route::post('/eliminarAlmacen/{id}', 'almacenesController@eliminarAlmacen')->middleware('admin','almacenes');

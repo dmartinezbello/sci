@@ -18,8 +18,8 @@
     	<div class="box-body">
             <div class="row">
                 <div class="col-md-3 form-group">
-                    <label for="fecha">Fecha:</label>
-                    <input name="fecha" type="text" value="{{$entrada->fecha}}" class="form-control" readonly>
+                    <label for="fecha">Almacen:</label>
+                    <input name="fecha" type="text" value="{{$almacen->nombre_almacen}}" class="form-control" readonly>
                     </div>
                         <div class="col-md-3 form-group">
                             <label for="almacen">Empleado:</label>

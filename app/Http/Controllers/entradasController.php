@@ -65,7 +65,7 @@ class entradasController extends Controller
     public function obtenerEntrada()
     {
         $id=$_GET['id'];
-
+        $cantidad=$_GET['cantidad'];
         $producto=Producto::find($id); 
 
         //Aquí marca error cuando no se encuentra el producto. Intenta enviar el nombre y precio de un producto que no existe. Validar si la consulta fue exitosa.

@@ -17,6 +17,7 @@ class productosController extends Controller
         ->join('Categoria','Categoria.id_categoria', '=', 'Producto.id_categoria')
         ->join('Proveedor','Proveedor.id_proveedor', '=', 'Producto.id_proveedor')
         ->select('Producto.*', 'Categoria.nombre AS nombre_categoria', 'Proveedor.nombre AS nombre_proveedor')
+        ->where('Producto.estado', 1)
         ->orderBy('id_producto')
         ->get();
 
@@ -73,8 +74,10 @@ class productosController extends Controller
 
     public function eliminarProducto($id)
     {
-      DB::table('Producto')->where('id_producto', $id)->delete();
-
+      //DB::table('Producto')->where('id_producto', $id)->delete();
+      $producto=Producto::find($id);
+      $producto->estado=0;
+      $producto->save();
       return Redirect('/consultarProducto');
     }
 

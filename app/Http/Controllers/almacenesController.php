@@ -29,6 +29,19 @@ class almacenesController extends Controller
       return view('admin.modificarAlmacen', compact('almacen'));
     }
 
+    public function detalleAlmacen($id)
+    {
+      $almacen=Almacen::find($id);
+      $stock=DB::table('Stock')
+        ->join('Producto','Producto.id_producto', '=', 'Stock.id_producto')
+        ->select('Stock.id_producto AS id_producto','Producto.nombre AS nombre_producto', 'Stock.cantidad AS cantidad', 'Producto.precio AS precio')
+        ->where('Stock.id_almacen',$id)
+        ->where('Producto.estado',1)
+        ->orderBy('Stock.id_producto')
+        ->get();
+      return view('admin.detalleAlmacen', compact('stock','almacen'));
+    }
+
     public function actualizarAlmacen(Request $datos, $id)
     {
       $almacen=Almacen::find($id);
