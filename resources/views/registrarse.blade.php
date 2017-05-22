@@ -31,6 +31,17 @@
                     <label for="contrasena">Contraseña:</label>
                     <input name="contrasena" type="password" placeholder="Tecla la contraseña" class="form-control" required>
                 </div>
+                <div class="form-group">
+                    <label for="tipo">Tipo:</label>
+                    <select name="tipo" class="form-control" required>
+                        <option value="" selected>Selecciona un tipo</option>
+                        <option value="0">Administrador</option>
+                        <option value="1">Productos</option>
+                        <option value="2">Entradas</option>
+                        <option value="3">Salidas</option>
+                        <option value="4">Almacenes</option>
+                    </select>
+                </div>
                 <button type="submit" class="btn btn-success">Aceptar</button>
                 <a href="{{url('/')}}" class="btn btn-danger">Cancelar</a>
             </form>

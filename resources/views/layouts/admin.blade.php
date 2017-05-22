@@ -73,6 +73,7 @@
       </div>
       <ul class="sidebar-menu">
         <li class="header">PANEL DE CONTROL</li>
+        @if (Auth::user()->tipo==0 OR Auth::user()->tipo==1)
         <li class="treeview">
           <a href="#">
             <i class="fa fa-table"></i> <span>Productos</span>
@@ -87,18 +88,6 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-bus"></i> <span>Proveedores</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="active"><a href="{{url('/consultarProveedor')}}"><i class="fa fa-search"></i>Consultar proveedor</a></li>
-            <li><a href="{{url('/registrarProveedor')}}"><i class="fa fa-plus"></i>Registrar proveedor</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
             <i class="fa fa-list-alt"></i> <span>Categorías</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -107,6 +96,21 @@
           <ul class="treeview-menu">
             <li class="active"><a href="{{url('/consultarCategoria')}}"><i class="fa fa-search"></i>Consultar categoría</a></li>
             <li><a href="{{url('/registrarCategoria')}}"><i class="fa fa-plus"></i>Registrar categoría</a></li>
+          </ul>
+        </li>
+        @else
+        @endif
+        @if (Auth::user()->tipo==0 OR Auth::user()->tipo==4)
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-bus"></i> <span>Proveedores</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="active"><a href="{{url('/consultarProveedor')}}"><i class="fa fa-search"></i>Consultar proveedor</a></li>
+            <li><a href="{{url('/registrarProveedor')}}"><i class="fa fa-plus"></i>Registrar proveedor</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -121,6 +125,9 @@
             <li><a href="{{url('/registrarAlmacen')}}"><i class="fa fa-plus"></i>Registrar almacén</a></li>
           </ul>
         </li>
+        @else
+        @endif
+        @if (Auth::user()->tipo==0 OR Auth::user()->tipo==2)
         <li class="treeview">
           <a href="#">
             <i class="fa fa-share"></i> <span>Entradas</span>
@@ -132,6 +139,9 @@
             <li class="active"><a href="{{url('/registrarEntrada')}}"><i class="fa fa-plus"></i>Registrar entrada</a></li>
           </ul>
         </li>
+        @else
+        @endif
+        @if (Auth::user()->tipo==0 OR Auth::user()->tipo==3)
         <li class="treeview">
           <a href="#">
             <i class="fa fa-reply"></i> <span>Salidas</span>
@@ -143,6 +153,9 @@
             <li class="active"><a href="{{url('/registrarSalida')}}"><i class="fa fa-plus"></i>Registrar salida</a></li>
           </ul>
         </li>
+        @else
+        @endif
+        <!--
         <li class="treeview">
           <a href="#">
             <i class="fa fa-archive"></i> <span>Devoluciones</span>
@@ -165,6 +178,7 @@
             <li class="active"><a href="{{url('/reporteInventario')}}"><i class="fa fa-file"></i>Reporte de inventario</a></li>
           </ul>
         </li>
+        -->
       </ul>
     </section>
   </aside>

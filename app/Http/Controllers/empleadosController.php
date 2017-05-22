@@ -30,6 +30,7 @@ class empleadosController extends Controller
        $empleado->password=bcrypt($datos->input('contrasena'));
        $empleado->nombre=$datos->input('nombre');
        $empleado->apellido=$datos->input('apellido');
+       $empleado->tipo=$datos->input('tipo');
        $empleado->save();
        return Redirect('/');
    }

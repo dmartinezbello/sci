@@ -12,9 +12,9 @@ Route::get('/login', function () {
 
 /* Rutas de Empleados*/
 
-Route::get('/admin', 'empleadosController@showLogin');
+Route::get('/admin', 'empleadosController@showLogin');->middleware('auth');
 
-Route::get('/logout', 'empleadosController@logout');
+Route::get('/logout', 'empleadosController@logout');->middleware('auth');
 
 Route::get('/iniciarSesion', 'empleadosController@iniciarSesion');
 
@@ -32,76 +32,76 @@ Route::post('/enviarMensaje', 'contactosController@enviarMensaje');
 
 /*Rutas de Productos*/
 
-Route::get('/consultarProducto', 'productosController@consultarProducto');
+Route::get('/consultarProducto', 'productosController@consultarProducto')->middleware('auth');
 
-Route::get('/registrarProducto', 'productosController@registrarProducto');
+Route::get('/registrarProducto', 'productosController@registrarProducto');->middleware('auth');
 
-Route::get('/modificarProducto/{id}', 'productosController@modificarProducto');
+Route::get('/modificarProducto/{id}', 'productosController@modificarProducto');->middleware('auth');
 
-Route::post('/eliminarProducto/{id}', 'productosController@eliminarProducto');
+Route::post('/eliminarProducto/{id}', 'productosController@eliminarProducto');->middleware('auth');
 
-Route::post('/actualizarProducto/{id}', 'productosController@actualizarProducto');
+Route::post('/actualizarProducto/{id}', 'productosController@actualizarProducto');->middleware('auth');
 
-Route::post('/guardarProducto', 'productosController@guardarProducto');
+Route::post('/guardarProducto', 'productosController@guardarProducto');->middleware('auth');
 
 /*Rutas de Proveedores*/
 
-Route::get('/registrarProveedor', 'proveedoresController@registrarProveedor');
+Route::get('/registrarProveedor', 'proveedoresController@registrarProveedor');->middleware('auth');
 
-Route::get('/consultarProveedor', 'proveedoresController@consultarProveedor');
+Route::get('/consultarProveedor', 'proveedoresController@consultarProveedor');->middleware('auth');
 
-Route::get('/modificarProveedor/{id}', 'proveedoresController@modificarProveedor');
+Route::get('/modificarProveedor/{id}', 'proveedoresController@modificarProveedor');->middleware('auth');
 
-Route::post('/guardarProveedor', 'proveedoresController@guardarProveedor');
+Route::post('/guardarProveedor', 'proveedoresController@guardarProveedor');->middleware('auth');
 
-Route::post('/eliminarProveedor/{id}', 'proveedoresController@eliminarProveedor');
+Route::post('/eliminarProveedor/{id}', 'proveedoresController@eliminarProveedor');->middleware('auth');
 
-Route::post('/actualizarProveedor/{id}', 'proveedoresController@actualizarProveedor');
+Route::post('/actualizarProveedor/{id}', 'proveedoresController@actualizarProveedor');->middleware('auth');
 
 /*Rutas de Categorias*/
 
-Route::get('/registrarCategoria', 'categoriasController@registrarCategoria');
+Route::get('/registrarCategoria', 'categoriasController@registrarCategoria');->middleware('auth');
 
-Route::get('/consultarCategoria', 'categoriasController@consultarCategoria');
+Route::get('/consultarCategoria', 'categoriasController@consultarCategoria');->middleware('auth');
 
-Route::get('/modificarCategoria/{id}', 'categoriasController@modificarCategoria');
+Route::get('/modificarCategoria/{id}', 'categoriasController@modificarCategoria');->middleware('auth');
 
-Route::post('/guardarCategoria', 'categoriasController@guardarCategoria');
+Route::post('/guardarCategoria', 'categoriasController@guardarCategoria');->middleware('auth');
 
-Route::post('/eliminarCategoria/{id}', 'categoriasController@eliminarCategoria');
+Route::post('/eliminarCategoria/{id}', 'categoriasController@eliminarCategoria');->middleware('auth');
 
-Route::post('/actualizarCategoria/{id}', 'categoriasController@actualizarCategoria');
+Route::post('/actualizarCategoria/{id}', 'categoriasController@actualizarCategoria');->middleware('auth');
 
 /*Rutas de Almacenes*/
 
-Route::get('/registrarAlmacen', 'almacenesController@registrarAlmacen');
+Route::get('/registrarAlmacen', 'almacenesController@registrarAlmacen');->middleware('auth');
 
-Route::get('/consultarAlmacen', 'almacenesController@consultarAlmacen');
+Route::get('/consultarAlmacen', 'almacenesController@consultarAlmacen');->middleware('auth');
 
-Route::get('/modificarAlmacen/{id}', 'almacenesController@modificarAlmacen');
+Route::get('/modificarAlmacen/{id}', 'almacenesController@modificarAlmacen');->middleware('auth');
 
-Route::post('/guardarAlmacen', 'almacenesController@guardarAlmacen');
+Route::post('/guardarAlmacen', 'almacenesController@guardarAlmacen');->middleware('auth');
 
-Route::post('/eliminarAlmacen/{id}', 'almacenesController@eliminarAlmacen');
+Route::post('/eliminarAlmacen/{id}', 'almacenesController@eliminarAlmacen');->middleware('auth');
 
-Route::post('/actualizarAlmacen/{id}', 'almacenesController@actualizarAlmacen');
+Route::post('/actualizarAlmacen/{id}', 'almacenesController@actualizarAlmacen');->middleware('auth');
 
 /*Rutas de Entradas*/
 
-Route::get('/registrarEntrada', 'entradasController@registrarEntrada');
+Route::get('/registrarEntrada', 'entradasController@registrarEntrada');->middleware('auth');
 
-Route::get('/obtenerEntrada', 'entradasController@obtenerEntrada');
+Route::get('/obtenerEntrada', 'entradasController@obtenerEntrada');->middleware('auth');
 
-Route::get('/detalleEntrada/{id}', 'entradasController@detalleEntrada');
+Route::get('/detalleEntrada/{id}', 'entradasController@detalleEntrada');->middleware('auth');
 
-Route::post('/guardarEntrada', 'entradasController@guardarEntrada');
+Route::post('/guardarEntrada', 'entradasController@guardarEntrada');->middleware('auth');
 
 /*Rutas de Salidas*/
 
-Route::get('/registrarSalida', 'salidasController@registrarSalida');
+Route::get('/registrarSalida', 'salidasController@registrarSalida');->middleware('auth');
 
-Route::get('/obtenerSalida', 'salidasController@obtenerSalida');
+Route::get('/obtenerSalida', 'salidasController@obtenerSalida');->middleware('auth');
 
-Route::get('/detalleSalida/{id}', 'salidasController@detalleSalida');
+Route::get('/detalleSalida/{id}', 'salidasController@detalleSalida');->middleware('auth');
 
-Route::post('/guardarSalida', 'salidasController@guardarSalida');
+Route::post('/guardarSalida', 'salidasController@guardarSalida');->middleware('auth');
