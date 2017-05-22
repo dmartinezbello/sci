@@ -147,7 +147,7 @@ $(document).ready(function ()
         {
 
             $.ajax({
-                url: '/guardarEntrada',
+                url: './guardarEntrada',
                 type: 'POST',
                 cache:false,
                 dataType: 'json',

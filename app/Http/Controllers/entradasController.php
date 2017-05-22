@@ -96,18 +96,17 @@ class entradasController extends Controller
             $detalle_entrada->save();
 
             //Aumentar el stock de productos...
-            $stock = DB::table('Stock')->where([
-                    ['id_producto', '=', $productos[$i]],
-                    ['id_almacen', '=', $almacen],
-                ])->select('cantidad')
-                  ->first();
-            
+
+            $stock=Stock::where('id_producto', $productos[$i])
+          ->where('id_almacen', $almacen)
+          ->first();
+
             $stock->cantidad=$stock->cantidad+$cantidad[$i];
             $stock->save();
         }
         
-       /* return response()->json([
+       return response()->json([
             'mensaje' => 'Listo'
-        ]);*/
+        ]);
     }
 }
