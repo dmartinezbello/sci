@@ -23,6 +23,7 @@ id_salida int not null,
 primary key (id_detalle_salida)
 );
 
+/*Va a quedar pendiente*/
 create table Devolucion(
 id_devolucion int not null auto_increment,
 tipo varchar(10) not null,

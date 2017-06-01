@@ -42,7 +42,7 @@ Route::post('/eliminarProducto/{id}', 'productosController@eliminarProducto')->m
 
 Route::post('/actualizarProducto/{id}', 'productosController@actualizarProducto')->middleware('admin','productos');
 
-Route::post('/guardarProducto', 'productosController@guardarProducto')->middleware('admin');
+Route::post('/guardarProducto', 'productosController@guardarProducto')->middleware('admin','productos');
 
 
 /*Rutas de Categorias*/
