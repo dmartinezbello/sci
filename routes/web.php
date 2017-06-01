@@ -32,83 +32,82 @@ Route::post('/enviarMensaje', 'contactosController@enviarMensaje');
 
 /*Rutas de Productos*/
 
-Route::get('/consultarProducto', 'productosController@consultarProducto')->middleware('admin','productos');
+Route::get('/consultarProducto', 'productosController@consultarProducto')->middleware('productos');
 
-Route::get('/registrarProducto', 'productosController@registrarProducto')->middleware('admin','productos');
+Route::get('/registrarProducto', 'productosController@registrarProducto')->middleware('productos');
 
-Route::get('/modificarProducto/{id}', 'productosController@modificarProducto')->middleware('admin','productos');
+Route::get('/modificarProducto/{id}', 'productosController@modificarProducto')->middleware('productos');
 
-Route::post('/eliminarProducto/{id}', 'productosController@eliminarProducto')->middleware('admin','productos');
+Route::post('/eliminarProducto/{id}', 'productosController@eliminarProducto')->middleware('productos');
 
-Route::post('/actualizarProducto/{id}', 'productosController@actualizarProducto')->middleware('admin','productos');
+Route::post('/actualizarProducto/{id}', 'productosController@actualizarProducto')->middleware('productos');
 
 Route::post('/guardarProducto', 'productosController@guardarProducto')->middleware('admin','productos');
 
-
 /*Rutas de Categorias*/
 
-Route::get('/registrarCategoria', 'categoriasController@registrarCategoria')->middleware('admin','productos');
+Route::get('/registrarCategoria', 'categoriasController@registrarCategoria')->middleware('productos');
 
-Route::get('/consultarCategoria', 'categoriasController@consultarCategoria')->middleware('admin','productos');
+Route::get('/consultarCategoria', 'categoriasController@consultarCategoria')->middleware('productos');
 
-Route::get('/modificarCategoria/{id}', 'categoriasController@modificarCategoria')->middleware('admin','productos');
+Route::get('/modificarCategoria/{id}', 'categoriasController@modificarCategoria')->middleware('productos');
 
-Route::post('/guardarCategoria', 'categoriasController@guardarCategoria')->middleware('admin','productos');
+Route::post('/guardarCategoria', 'categoriasController@guardarCategoria')->middleware('productos');
 
-Route::post('/eliminarCategoria/{id}', 'categoriasController@eliminarCategoria')->middleware('admin','productos');
+Route::post('/eliminarCategoria/{id}', 'categoriasController@eliminarCategoria')->middleware('productos');
 
-Route::post('/actualizarCategoria/{id}', 'categoriasController@actualizarCategoria')->middleware('admin','productos');
+Route::post('/actualizarCategoria/{id}', 'categoriasController@actualizarCategoria')->middleware('productos');
 
 /*Rutas de Almacenes*/
 
-Route::get('/registrarAlmacen', 'almacenesController@registrarAlmacen')->middleware('admin','almacenes');
+Route::get('/registrarAlmacen', 'almacenesController@registrarAlmacen')->middleware('almacenes');
 
-Route::get('/consultarAlmacen', 'almacenesController@consultarAlmacen')->middleware('admin','almacenes');
+Route::get('/consultarAlmacen', 'almacenesController@consultarAlmacen')->middleware('almacenes');
 
-Route::get('/modificarAlmacen/{id}', 'almacenesController@modificarAlmacen')->middleware('admin','almacenes');
+Route::get('/modificarAlmacen/{id}', 'almacenesController@modificarAlmacen')->middleware('almacenes');
 
-Route::get('/detalleAlmacen/{id}', 'almacenesController@detalleAlmacen')->middleware('admin','almacenes');
+Route::get('/detalleAlmacen/{id}', 'almacenesController@detalleAlmacen')->middleware('almacenes');
 
-Route::post('/guardarAlmacen', 'almacenesController@guardarAlmacen')->middleware('admin','almacenes');
+Route::post('/guardarAlmacen', 'almacenesController@guardarAlmacen')->middleware('almacenes');
 
-Route::post('/eliminarAlmacen/{id}', 'almacenesController@eliminarAlmacen')->middleware('admin','almacenes');
+Route::post('/eliminarAlmacen/{id}', 'almacenesController@eliminarAlmacen')->middleware('almacenes');
 
-Route::post('/actualizarAlmacen/{id}', 'almacenesController@actualizarAlmacen')->middleware('admin','almacenes');
+Route::post('/actualizarAlmacen/{id}', 'almacenesController@actualizarAlmacen')->middleware('almacenes');
 
 /*Rutas de Proveedores*/
 
-Route::get('/registrarProveedor', 'proveedoresController@registrarProveedor')->middleware('admin','almacenes');
+Route::get('/registrarProveedor', 'proveedoresController@registrarProveedor')->middleware('almacenes');
 
-Route::get('/consultarProveedor', 'proveedoresController@consultarProveedor')->middleware('admin','almacenes');
+Route::get('/consultarProveedor', 'proveedoresController@consultarProveedor')->middleware('almacenes');
 
-Route::get('/modificarProveedor/{id}', 'proveedoresController@modificarProveedor')->middleware('admin','almacenes');
+Route::get('/modificarProveedor/{id}', 'proveedoresController@modificarProveedor')->middleware('almacenes');
 
-Route::post('/guardarProveedor', 'proveedoresController@guardarProveedor')->middleware('admin','almacenes');
+Route::post('/guardarProveedor', 'proveedoresController@guardarProveedor')->middleware('almacenes');
 
-Route::post('/eliminarProveedor/{id}', 'proveedoresController@eliminarProveedor')->middleware('admin','almacenes');
+Route::post('/eliminarProveedor/{id}', 'proveedoresController@eliminarProveedor')->middleware('almacenes');
 
-Route::post('/actualizarProveedor/{id}', 'proveedoresController@actualizarProveedor')->middleware('admin','almacenes');
+Route::post('/actualizarProveedor/{id}', 'proveedoresController@actualizarProveedor')->middleware('almacenes');
 
 /*Rutas de Entradas*/
 
-Route::get('/registrarEntrada', 'entradasController@registrarEntrada')->middleware('admin','entradas');
+Route::get('/registrarEntrada', 'entradasController@registrarEntrada')->middleware('entradas');
 
-Route::get('/consultarEntrada', 'entradasController@consultarEntrada')->middleware('admin','entradas');
+Route::get('/consultarEntrada', 'entradasController@consultarEntrada')->middleware('entradas');
 
-Route::get('/obtenerEntrada', 'entradasController@obtenerEntrada')->middleware('admin','entradas');
+Route::get('/obtenerEntrada', 'entradasController@obtenerEntrada')->middleware('entradas');
 
-Route::get('/detalleEntrada/{id}', 'entradasController@detalleEntrada')->middleware('admin','entradas');
+Route::get('/detalleEntrada/{id}', 'entradasController@detalleEntrada')->middleware('entradas');
 
-Route::post('/guardarEntrada', 'entradasController@guardarEntrada')->middleware('admin','entradas');
+Route::post('/guardarEntrada', 'entradasController@guardarEntrada')->middleware('entradas');
 
 /*Rutas de Salidas*/
 
-Route::get('/registrarSalida', 'salidasController@registrarSalida')->middleware('admin','salidas');
+Route::get('/registrarSalida', 'salidasController@registrarSalida')->middleware('salidas');
 
-Route::get('/consultarSalida', 'salidasController@consultarSalida')->middleware('admin','salidas');
+Route::get('/consultarSalida', 'salidasController@consultarSalida')->middleware('salidas');
 
-Route::get('/obtenerSalida', 'salidasController@obtenerSalida')->middleware('admin','salidas');
+Route::get('/obtenerSalida', 'salidasController@obtenerSalida')->middleware('salidas');
 
-Route::get('/detalleSalida/{id}', 'salidasController@detalleSalida')->middleware('admin','salidas');
+Route::get('/detalleSalida/{id}', 'salidasController@detalleSalida')->middleware('salidas');
 
-Route::post('/guardarSalida', 'salidasController@guardarSalida')->middleware('admin','salidas');
+Route::post('/guardarSalida', 'salidasController@guardarSalida')->middleware('salidas');

@@ -15,9 +15,13 @@
         <h2><b>Iniciar sesión</b></h2><br>
     </div>
     @if(Session::has('mensaje_error'))
-    {{ Session::get('mensaje_error') }}
+    <div class="alert alert-danger text-center">
+  <strong>Error:</strong> {{ Session::get('mensaje_error') }}
+</div>
+    
     @endif
     <section class="container form-iniciar-sesion">
+    
         <form name="formIniciarSesion" method="POST" action="{{url('/entrarSistema')}}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input> 
             <div class="form-group">
