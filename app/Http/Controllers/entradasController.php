@@ -87,7 +87,7 @@ class entradasController extends Controller
         $restante=$almacenseleccionado->capacidad-$ocupado->actual;
         $mensaje="";
         if($cantidad<$restante) {
-            $mensaje="aprovado";
+            $mensaje="Aprobado";
         } else
         {
             $mensaje="No cuenta con el espacio suficiente en el almacen, Espacio restante: ".$restante;
